@@ -1,0 +1,184 @@
+pages/profile.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Trāṇa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="profile-page">
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1><a href="../index.html">Trāṇa</a></h1>
+                <p class="tagline">Rescuing Food, Sustaining Life</p>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="food.html">Food Logger</a></li>
+                    <li><a href="carbon.html">Carbon Calculator</a></li>
+                    <li><a href="ai.html">Gemini Suggestions</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="badges.html">Badges</a></li>
+                    <li><a href="profile.html" class="active">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Your Profile</h2>
+                <p>Track your progress and customize your Trāṇa experience</p>
+            </div>
+        </section>
+        
+        <section class="profile-section">
+            <div class="container">
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <div class="avatar-placeholder">
+                                <!-- Avatar icon will be added with CSS -->
+                            </div>
+                        </div>
+                        <div class="profile-info">
+                            <form id="profile-form">
+                                <div class="form-group">
+                                    <label for="user-name">Your Name</label>
+                                    <input type="text" id="user-name" name="userName" placeholder="Enter your name">
+                                    <button type="submit" class="btn small-btn">Save</button>
+                                </div>
+                            </form>
+                            <p class="user-since">Member since <span id="user-join-date">April 2025</span></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-stats">
+                    <h3>Your Impact</h3>
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-icon">🍎</div>
+                            <div class="stat-value" id="food-items-logged">0</div>
+                            <div class="stat-label">Food Items Logged</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">⏱️</div>
+                            <div class="stat-value" id="items-saved">0</div>
+                            <div class="stat-label">Items Saved from Waste</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🌍</div>
+                            <div class="stat-value" id="co2-saved">0 kg</div>
+                            <div class="stat-label">CO₂ Emissions Saved</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💡</div>
+                            <div class="stat-value" id="ai-suggestions-used">0</div>
+                            <div class="stat-label">AI Suggestions Used</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recent-badges">
+                    <h3>Recent Badges</h3>
+                    <p class="no-badges-message" id="no-badges-message">You haven't earned any badges yet. Start using Trāṇa features to earn badges!</p>
+                    <div class="badges-container" id="recent-badges-container">
+                        <!-- Badges will be populated via JavaScript -->
+                    </div>
+                    <div class="view-all-badges">
+                        <a href="badges.html" class="btn secondary-btn">View All Badges</a>
+                    </div>
+                </div>
+                
+                <div class="profile-actions">
+                    <h3>Settings</h3>
+                    <div class="settings-container">
+                        <div class="setting-row">
+                            <div class="setting-label">
+                                <span>Expiry Notifications</span>
+                                <span class="setting-description">Get alerts when food items are about to expire</span>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="notifications-toggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-row">
+                            <div class="setting-label">
+                                <span>Weekly Summary</span>
+                                <span class="setting-description">Receive a weekly summary of your food waste reduction</span>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="summary-toggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-row">
+                            <div class="setting-label">
+                                <span>Dark Mode</span>
+                                <span class="setting-description">Switch between light and dark theme</span>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="theme-toggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="data-management">
+                    <h3>Data Management</h3>
+                    <div class="data-actions">
+                        <button id="export-data" class="btn secondary-btn">Export Your Data</button>
+                        <button id="reset-data" class="btn danger-btn">Reset All Data</button>
+                    </div>
+                    <p class="data-note">Your data is stored locally on your device and not shared with any third parties.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Trāṇa</h2>
+                    <p class="tagline">Rescuing Food, Sustaining Life</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="food.html">Food Logger</a></li>
+                        <li><a href="carbon.html">Carbon Calculator</a></li>
+                        <li><a href="ai.html">Gemini Suggestions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="badges.html">Badges</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 Trāṇa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/profile.js"></script>
+</body>
+</html>

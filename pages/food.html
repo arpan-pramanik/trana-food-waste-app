@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Logger - Trāṇa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1><a href="../index.html">Trāṇa</a></h1>
+                <p class="tagline">Rescuing Food, Sustaining Life</p>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="food.html" class="active">Food Logger</a></li>
+                    <li><a href="carbon.html">Carbon Calculator</a></li>
+                    <li><a href="ai.html">Gemini Suggestions</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="badges.html">Badges</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Food Logger</h2>
+                <p>Track your food items and get reminded before they expire</p>
+            </div>
+        </section>
+        
+        <section class="food-logger">
+            <div class="container">
+                <div class="food-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">🍎</div>
+                        <span id="total-items-count">0</span>
+                        <span>Items Being Tracked</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⚠️</div>
+                        <span id="expiring-soon-count">0</span>
+                        <span>Expiring Soon</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">✅</div>
+                        <span id="used-items-count">0</span>
+                        <span>Items Used</span>
+                    </div>
+                </div>
+
+                <div class="add-food-card">
+                    <h3>Add Food Item</h3>
+                    <form id="food-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="food-name">Food Name</label>
+                                <input type="text" id="food-name" placeholder="Enter food name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="food-category">Category</label>
+                                <select id="food-category" required>
+                                    <option value="" disabled selected>Select category</option>
+                                    <option value="fruits">Fruits</option>
+                                    <option value="vegetables">Vegetables</option>
+                                    <option value="dairy">Dairy</option>
+                                    <option value="meat">Meat & Fish</option>
+                                    <option value="grains">Grains & Bread</option>
+                                    <option value="leftovers">Leftovers</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <div class="quantity-input">
+                                    <input type="number" id="quantity" min="0.1" step="0.1" value="1" required>
+                                    <select id="quantity-unit">
+                                        <option value="kg">kg</option>
+                                        <option value="g">g</option>
+                                        <option value="items">items</option>
+                                        <option value="cups">cups</option>
+                                        <option value="ml">ml</option>
+                                        <option value="l">l</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="storage-location">Storage Location</label>
+                                <select id="storage-location">
+                                    <option value="refrigerator">Refrigerator</option>
+                                    <option value="freezer">Freezer</option>
+                                    <option value="pantry">Pantry</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date-added">Date Added</label>
+                                <input type="date" id="date-added" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="expiry-date">Expiry Date</label>
+                                <input type="date" id="expiry-date" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="notes">Notes (Optional)</label>
+                            <textarea id="notes" rows="2" placeholder="Add any additional notes here"></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn primary-btn">Add Food Item</button>
+                            <button type="reset" class="btn secondary-btn">Clear Form</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="food-list-container">
+                    <div class="food-list-header">
+                        <h3>Your Food Inventory</h3>
+                        <div class="list-filters">
+                            <button class="btn filter-btn active" data-filter="all">All</button>
+                            <button class="btn filter-btn" data-filter="expiring-soon">Expiring Soon</button>
+                            <button class="btn filter-btn" data-filter="expired">Expired</button>
+                            <select id="category-filter">
+                                <option value="all">All Categories</option>
+                                <option value="fruits">Fruits</option>
+                                <option value="vegetables">Vegetables</option>
+                                <option value="dairy">Dairy</option>
+                                <option value="meat">Meat & Fish</option>
+                                <option value="grains">Grains & Bread</option>
+                                <option value="leftovers">Leftovers</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div id="food-list" class="food-list">
+                        <p id="empty-list-message" class="empty-message">No food items recorded. Add your first item above!</p>
+                        
+                        <div id="list-items" class="list-items">
+                            <!-- Food items will be populated here via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="list-actions">
+                    <div class="action-buttons">
+                        <button id="mark-used-btn" class="btn secondary-btn" disabled>Mark Selected as Used</button>
+                        <button id="delete-selected-btn" class="btn danger-btn" disabled>Delete Selected</button>
+                    </div>
+                    <button id="clear-all-btn" class="btn danger-outline-btn">Clear All Items</button>
+                </div>
+                
+                <div class="tips-card">
+                    <h3>Food Storage Tips</h3>
+                    <div class="tip">
+                        <span class="tip-icon">💡</span>
+                        <p>Store fruits and vegetables separately. Many fruits release ethylene gas as they ripen, which can cause nearby vegetables to spoil more quickly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Trāṇa</h2>
+                    <p class="tagline">Rescuing Food, Sustaining Life</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="food.html">Food Logger</a></li>
+                        <li><a href="carbon.html">Carbon Calculator</a></li>
+                        <li><a href="ai.html">Gemini Suggestions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="badges.html">Badges</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 Trāṇa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/food-logger.js"></script>
+</body>
+</html>

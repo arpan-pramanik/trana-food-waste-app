@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badges & Achievements - Trāṇa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1><a href="../index.html">Trāṇa</a></h1>
+                <p class="tagline">Rescuing Food, Sustaining Life</p>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="food.html">Food Logger</a></li>
+                    <li><a href="carbon.html">Carbon Calculator</a></li>
+                    <li><a href="ai.html">Gemini Suggestions</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="badges.html" class="active">Badges</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Your Badges & Achievements</h2>
+                <p>Track your sustainability journey with these badges</p>
+            </div>
+        </section>
+        
+        <section class="badges-section">
+            <div class="container">
+                <div class="badges-summary">
+                    <div class="summary-card">
+                        <h3>Badge Progress</h3>
+                        <div class="badges-stats">
+                            <div class="badge-stat">
+                                <span id="total-badges-count">0</span>
+                                <span>Total Badges Earned</span>
+                            </div>
+                            <div class="badge-stat">
+                                <span id="badges-percentage">0%</span>
+                                <span>Completion Rate</span>
+                            </div>
+                        </div>
+                        <div class="badges-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="badges-progress-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="badge-categories">
+                    <div class="category-tabs">
+                        <button class="tab-btn active" data-category="all">All Badges</button>
+                        <button class="tab-btn" data-category="food">Food Logger</button>
+                        <button class="tab-btn" data-category="carbon">Carbon Reduction</button>
+                        <button class="tab-btn" data-category="ai">AI Interaction</button>
+                    </div>
+                    
+                    <div class="badges-container" id="badges-container">
+                        <div class="badges-empty" id="no-badges-message">
+                            <div class="empty-icon">🏆</div>
+                            <p>You haven't earned any badges yet. Start using Trāṇa's features to earn badges and track your progress!</p>
+                            <a href="food.html" class="btn primary-btn">Start Logging Food</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="locked-badges-section" id="locked-badges-section">
+                    <h3>Badges to Unlock</h3>
+                    <p class="section-description">Keep using Trāṇa to unlock these achievements!</p>
+                    <div class="locked-badges" id="locked-badges-container">
+                        <!-- Locked badges will be populated here via JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="badges-info">
+                    <h3>About Badges</h3>
+                    <p>Badges are awarded as you use Trāṇa's features and make progress in reducing food waste. Each badge represents an achievement in your sustainability journey.</p>
+                    <div class="badge-benefits">
+                        <div class="benefit">
+                            <div class="benefit-icon">🎯</div>
+                            <div class="benefit-text">
+                                <h4>Track Progress</h4>
+                                <p>Badges help you visualize your impact on reducing food waste.</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit-icon">💪</div>
+                            <div class="benefit-text">
+                                <h4>Stay Motivated</h4>
+                                <p>Unlock new badges as you continue your sustainability journey.</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <div class="benefit-icon">🌍</div>
+                            <div class="benefit-text">
+                                <h4>Make an Impact</h4>
+                                <p>Each badge represents a real contribution to environmental sustainability.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Trāṇa</h2>
+                    <p class="tagline">Rescuing Food, Sustaining Life</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="food.html">Food Logger</a></li>
+                        <li><a href="carbon.html">Carbon Calculator</a></li>
+                        <li><a href="ai.html">Gemini Suggestions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="badges.html">Badges</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 Trāṇa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/badges.js"></script>
+</body>
+</html>

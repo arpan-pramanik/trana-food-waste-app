@@ -1,0 +1,348 @@
+/**
+ * CSS styles specific to the AI Suggestions page
+ */
+
+ .ai-suggestions {
+    padding: 30px 0;
+}
+
+.suggestion-input-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.suggestion-input-card h3 {
+    color: #2a9d8f;
+    margin-bottom: 15px;
+}
+
+.suggestion-input-card p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+#ingredients-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+#ingredients-input:focus {
+    border-color: #2a9d8f;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(42, 157, 143, 0.2);
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.suggestions-results {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    margin-bottom: 30px;
+    min-height: 200px;
+}
+
+.loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(42, 157, 143, 0.2);
+    border-top-color: #2a9d8f;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.no-suggestions, .error-message {
+    text-align: center;
+    padding: 40px 0;
+    color: #666;
+}
+
+.error-message {
+    color: #e76f51;
+}
+
+.retry-btn {
+    margin-top: 15px;
+}
+
+.ingredients-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.ingredients-header h3 {
+    color: #2a9d8f;
+    margin-bottom: 10px;
+}
+
+.ingredients-list {
+    font-weight: 500;
+    color: #333;
+}
+
+.suggestions-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.suggestion-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.suggestion-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+}
+
+.suggestion-card h4 {
+    color: #264653;
+    margin-bottom: 12px;
+}
+
+.suggestion-card p {
+    margin-bottom: 15px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.save-suggestion {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.save-suggestion:disabled {
+    background-color: #e9ecef;
+    color: #495057;
+    cursor: not-allowed;
+}
+
+.suggestion-history {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.suggestion-history h3 {
+    color: #2a9d8f;
+    margin-bottom: 20px;
+}
+
+.empty-history-message {
+    color: #666;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.history-item:hover {
+    background-color: #f8f9fa;
+}
+
+.history-item-header {
+    flex-grow: 1;
+}
+
+.history-item-ingredients {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #264653;
+}
+
+.history-item-date {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.history-item-view {
+    background-color: #f8f9fa;
+    color: #264653;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.history-item-view:hover {
+    background-color: #e9ecef;
+}
+
+.ai-info-card {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.ai-info-card h3 {
+    color: #2a9d8f;
+    margin-bottom: 15px;
+}
+
+.ai-info-card p {
+    margin-bottom: 20px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.ai-stats {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.ai-stat span {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #264653;
+    margin-bottom: 5px;
+}
+
+.ai-stat p {
+    margin: 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* API Status Indicator */
+.api-status {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 15px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.api-status.connected {
+    background-color: rgba(46, 204, 113, 0.1);
+    color: #27ae60;
+}
+
+.api-status.error {
+    background-color: rgba(231, 76, 60, 0.1);
+    color: #e74c3c;
+}
+
+.api-status.pending {
+    background-color: rgba(241, 196, 15, 0.1);
+    color: #f39c12;
+}
+
+.status-icon {
+    font-size: 0.8rem;
+    margin-right: 6px;
+}
+
+.status-icon.active {
+    color: #2ecc71;
+}
+
+.status-icon.error {
+    color: #e74c3c;
+}
+
+.status-icon.pending {
+    color: #f39c12;
+}
+
+.api-help-text {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.api-help-text code {
+    background-color: #f8f9fa;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+.notification-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2a9d8f;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
+}
+
+.notification-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .suggestions-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .ai-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .form-actions {
+        justify-content: center;
+    }
+}

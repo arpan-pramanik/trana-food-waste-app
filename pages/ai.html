@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini AI Suggestions - Trāṇa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/ai-suggestions.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1><a href="../index.html">Trāṇa</a></h1>
+                <p class="tagline">Rescuing Food, Sustaining Life</p>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="food.html">Food Logger</a></li>
+                    <li><a href="carbon.html">Carbon Calculator</a></li>
+                    <li><a href="ai.html" class="active">Gemini Suggestions</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="badges.html">Badges</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Gemini AI Suggestions</h2>
+                <p>Get creative ideas to reuse your leftover ingredients and reduce food waste</p>
+            </div>
+        </section>
+        
+        <section class="ai-suggestions">
+            <div class="container">
+                <div class="suggestion-input-card">
+                    <h3>What ingredients do you have?</h3>
+                    <p>Enter ingredients you want to use up, and let AI help you find creative ways to use them!</p>
+                    
+                    <form id="suggestion-form">
+                        <div class="form-group">
+                            <label for="ingredients-input">Ingredients</label>
+                            <textarea 
+                                id="ingredients-input" 
+                                placeholder="Ex: rice, half avocado, spinach, leftover chicken"
+                                rows="3"
+                                required
+                            ></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn primary-btn">
+                                <span class="btn-text">Get Reuse Ideas</span>
+                                <span class="btn-icon">💡</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="suggestions-results" id="suggestions-container">
+                    <div class="loading-indicator" id="loading-indicator">
+                        <div class="spinner"></div>
+                        <p>Generating creative suggestions...</p>
+                    </div>
+                    
+                    <div class="suggestions-content" id="suggestions-content">
+                        <!-- Suggestions will be populated here via JavaScript -->
+                    </div>
+                    
+                    <div class="no-suggestions" id="no-suggestions">
+                        <p>Enter your ingredients above to get creative reuse ideas!</p>
+                    </div>
+                    
+                    <div class="error-message" id="error-message">
+                        <p>Sorry, we couldn't generate suggestions at this time. Please try again later.</p>
+                    </div>
+                </div>
+                
+                <div class="suggestion-history">
+                    <h3>Recent Suggestions</h3>
+                    <div class="history-list" id="history-list">
+                        <!-- History will be populated here via JavaScript -->
+                    </div>
+                    <p class="empty-history-message" id="empty-history-message">Your recent suggestions will appear here.</p>
+                </div>
+                
+                <div class="ai-info-card">
+                    <h3>About AI Suggestions</h3>
+                    <p>This feature uses Google's Gemini AI to generate creative and practical ways to reuse leftover ingredients. Each time you use a suggestion, you're helping reduce food waste and its environmental impact.</p>
+                    <div class="ai-stats">
+                        <div class="ai-stat">
+                            <span id="suggestions-generated">0</span>
+                            <p>Suggestions Generated</p>
+                        </div>
+                        <div class="ai-stat">
+                            <span id="suggestions-saved">0</span>
+                            <p>Suggestions Saved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Trāṇa</h2>
+                    <p class="tagline">Rescuing Food, Sustaining Life</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="food.html">Food Logger</a></li>
+                        <li><a href="carbon.html">Carbon Calculator</a></li>
+                        <li><a href="ai.html">Gemini Suggestions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="badges.html">Badges</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 Trāṇa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/ai-suggestions.js"></script>
+</body>
+</html>

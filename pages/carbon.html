@@ -1,0 +1,175 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator - Trāṇa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1><a href="../index.html">Trāṇa</a></h1>
+                <p class="tagline">Rescuing Food, Sustaining Life</p>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="food.html">Food Logger</a></li>
+                    <li><a href="carbon.html" class="active">Carbon Calculator</a></li>
+                    <li><a href="ai.html">Gemini Suggestions</a></li>
+                    <li><a href="learn.html">Learn</a></li>
+                    <li><a href="badges.html">Badges</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>Carbon Footprint Calculator</h2>
+                <p>Calculate the environmental impact of food waste and track your carbon savings</p>
+            </div>
+        </section>
+        
+        <section class="carbon-calculator">
+            <div class="container">
+                <div class="calculator-intro">
+                    <p>Food waste contributes significantly to greenhouse gas emissions. When food decomposes in landfills, it produces methane, a greenhouse gas 25 times more potent than carbon dioxide. By tracking the food you've saved from waste, you can see your positive environmental impact.</p>
+                </div>
+
+                <div class="calculator-card">
+                    <h3>Calculate Your Food Waste Impact</h3>
+                    
+                    <form id="carbon-calculator-form">
+                        <div class="form-group">
+                            <label for="food-type">Food Type</label>
+                            <select id="food-type" required>
+                                <option value="" disabled selected>Select food type</option>
+                                <option value="beef">Beef</option>
+                                <option value="lamb">Lamb</option>
+                                <option value="cheese">Cheese</option>
+                                <option value="pork">Pork</option>
+                                <option value="poultry">Poultry (Chicken/Turkey)</option>
+                                <option value="eggs">Eggs</option>
+                                <option value="rice">Rice</option>
+                                <option value="milk">Milk</option>
+                                <option value="bread">Bread</option>
+                                <option value="vegetables">Vegetables (Average)</option>
+                                <option value="fruits">Fruits (Average)</option>
+                                <option value="potatoes">Potatoes</option>
+                                <option value="nuts">Nuts</option>
+                                <option value="beans">Beans/Legumes</option>
+                                <option value="tofu">Tofu</option>
+                                <option value="fish">Fish</option>
+                                <option value="other">Other Food (Average)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="quantity">Quantity (kg)</label>
+                            <div class="quantity-input">
+                                <input type="number" id="quantity" min="0.01" step="0.01" value="1" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn primary-btn">Calculate Impact</button>
+                            <button type="button" id="add-to-list" class="btn secondary-btn">Add to List</button>
+                        </div>
+                    </form>
+                    
+                    <div class="calculation-result" id="result">
+                        <h4>Carbon Footprint</h4>
+                        <div class="result-details" id="result-details">
+                            <p>Select a food type and enter quantity to calculate impact.</p>
+                        </div>
+                        <div class="result-value" id="result-value"></div>
+                    </div>
+                </div>
+                
+                <div class="waste-list-container">
+                    <div class="waste-list-header">
+                        <h3>Your Waste List</h3>
+                        <button type="button" id="calculate-total" class="btn primary-btn">Calculate Total Impact</button>
+                    </div>
+                    
+                    <div class="waste-list" id="waste-list">
+                        <p class="empty-list-message" id="empty-list-message">Add food items to your list to calculate total impact.</p>
+                        <div class="list-items" id="list-items"></div>
+                    </div>
+                    
+                    <div class="total-result" id="total-result">
+                        <div class="total-co2" id="total-co2"></div>
+                        <div class="total-equivalent" id="total-equivalent"></div>
+                    </div>
+                </div>
+                
+                <div class="carbon-savings">
+                    <h3>Your Carbon Savings</h3>
+                    <p>By logging and using your food items before they expire, you've potentially saved:</p>
+                    
+                    <div class="savings-data">
+                        <div class="savings-card">
+                            <div class="savings-icon">🌱</div>
+                            <div class="savings-value" id="total-saved-kg">0 kg</div>
+                            <div class="savings-label">CO₂ Emissions Prevented</div>
+                        </div>
+                        
+                        <div class="savings-card">
+                            <div class="savings-icon">🚗</div>
+                            <div class="savings-value" id="car-equivalent">0 km</div>
+                            <div class="savings-label">Equivalent to Car Distance</div>
+                        </div>
+                    </div>
+                    
+                    <div class="savings-note">
+                        <p>Keep tracking your food and preventing waste to increase your positive environmental impact!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Trāṇa</h2>
+                    <p class="tagline">Rescuing Food, Sustaining Life</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="food.html">Food Logger</a></li>
+                        <li><a href="carbon.html">Carbon Calculator</a></li>
+                        <li><a href="ai.html">Gemini Suggestions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="badges.html">Badges</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 Trāṇa. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/carbon-calculator.js"></script>
+</body>
+</html>
