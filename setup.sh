@@ -1,5 +1,5 @@
 #!/bin/bash
-# Setup script for Trana Food Waste App AI Backend
+# Setup script for Trāṇa Food Waste App AI Backend
 
 # Print colored text
 print_blue() {

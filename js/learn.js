@@ -1,5 +1,5 @@
 /**
- * Learn Page Module for Trana
+ * Learn Page Module for Trāṇa
  * Handles interactions with Python backend to get educational content from Gemini AI
  */
 
@@ -243,8 +243,15 @@ async function handleTopicFormSubmit(event) {
         }
     } catch (error) {
         console.error('Error getting content:', error);
-        showErrorState();
-        showNotification('Failed to get content: ' + error.message);
+        
+        // Check if this is a validation error (non-food waste related topic)
+        if (error.isValidationError) {
+            showErrorState(error.message);
+            showNotification(error.message);
+        } else {
+            showErrorState();
+            showNotification('Failed to get content: ' + error.message);
+        }
     }
 }
 
@@ -270,6 +277,13 @@ async function getGeminiLearnContent(topic) {
         const data = await response.json();
         
         if (!response.ok || data.status === 'error') {
+            // Check if this is a topic validation error (non-food waste related topic)
+            if (data.message && data.message.includes("Please enter topics related to food waste")) {
+                // Create custom error with specific message for UI display
+                const error = new Error(data.message);
+                error.isValidationError = true;
+                throw error;
+            }
             throw new Error(data.message || 'Failed to get educational content');
         }
         
@@ -419,7 +433,7 @@ function shareContent(topic, content) {
     // For now, simulate copy to clipboard
     
     // Create shareable text
-    const shareText = `${content.title || topic}\n\n${content.introduction || ''}\n\n${content.content || ''}\n\nLearned from Trana - Rescuing Food, Sustaining Life`;
+    const shareText = `${content.title || topic}\n\n${content.introduction || ''}\n\n${content.content || ''}\n\nLearned from Trāṇa - Rescuing Food, Sustaining Life`;
     
     // Copy to clipboard
     navigator.clipboard.writeText(shareText)
@@ -445,10 +459,19 @@ function showLoadingState() {
 /**
  * Show error state
  */
-function showErrorState() {
-    loadingIndicator.style.display = 'none';
+function showErrorState(customMessage) {
     contentDisplay.style.display = 'none';
+    loadingIndicator.style.display = 'none';
     noContent.style.display = 'none';
+    
+    // Update error message if a custom message is provided
+    if (customMessage && errorMessage) {
+        const errorParagraph = errorMessage.querySelector('p');
+        if (errorParagraph) {
+            errorParagraph.textContent = customMessage;
+        }
+    }
+    
     errorMessage.style.display = 'block';
 }
 

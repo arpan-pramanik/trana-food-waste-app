@@ -1,6 +1,6 @@
 // This file manages Local Storage operations, including saving and retrieving logged food items and user data.
 
-const storageKey = 'tranaFoodLogger';
+const storageKey = 'TrāṇaFoodLogger';
 
 // Save food items to Local Storage
 function saveFoodItems(items) {
@@ -20,16 +20,16 @@ function clearFoodItems() {
 
 // Save user profile data to Local Storage
 function saveUserProfile(profile) {
-    localStorage.setItem('tranaUserProfile', JSON.stringify(profile));
+    localStorage.setItem('TrāṇaUserProfile', JSON.stringify(profile));
 }
 
 // Retrieve user profile data from Local Storage
 function getUserProfile() {
-    const profile = localStorage.getItem('tranaUserProfile');
+    const profile = localStorage.getItem('TrāṇaUserProfile');
     return profile ? JSON.parse(profile) : {};
 }
 
 // Clear user profile data from Local Storage
 function clearUserProfile() {
-    localStorage.removeItem('tranaUserProfile');
+    localStorage.removeItem('TrāṇaUserProfile');
 }

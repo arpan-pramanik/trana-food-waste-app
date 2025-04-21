@@ -1,4 +1,4 @@
-// Main JavaScript file for Trana application
+// Main JavaScript file for Trāṇa application
 // Handles overall UI logic and interactions across the application
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,5 +1,5 @@
 /**
- * AI Suggestions Module for Trana
+ * AI Suggestions Module for Trāṇa
  * Handles interactions with Python backend to get food reuse suggestions from Gemini AI
  */
 
@@ -211,8 +211,15 @@ async function handleSuggestionFormSubmit(event) {
         }
     } catch (error) {
         console.error('Error getting suggestions:', error);
-        showErrorState();
-        showNotification('Failed to get suggestions: ' + error.message);
+        
+        // Check if this is a validation error (non-food related query)
+        if (error.isValidationError) {
+            showErrorState(error.message);
+            showNotification(error.message);
+        } else {
+            showErrorState();
+            showNotification('Failed to get suggestions: ' + error.message);
+        }
     }
 }
 
@@ -238,6 +245,13 @@ async function getGeminiSuggestions(ingredients) {
         const data = await response.json();
         
         if (!response.ok || data.status === 'error') {
+            // Check if this is a topic validation error (non-food related query)
+            if (data.message && data.message.includes("Please enter food ingredients only")) {
+                // Create custom error with specific message for UI display
+                const error = new Error(data.message);
+                error.isValidationError = true;
+                throw error;
+            }
             throw new Error(data.message || 'Failed to get suggestions');
         }
         
@@ -368,10 +382,19 @@ function showLoadingState() {
 /**
  * Show error state
  */
-function showErrorState() {
+function showErrorState(customMessage) {
     suggestionsContent.style.display = 'none';
     noSuggestions.style.display = 'none';
     loadingIndicator.style.display = 'none';
+    
+    // Update error message if a custom message is provided
+    if (customMessage && errorMessage) {
+        const errorParagraph = errorMessage.querySelector('p');
+        if (errorParagraph) {
+            errorParagraph.textContent = customMessage;
+        }
+    }
+    
     errorMessage.style.display = 'block';
 }
 

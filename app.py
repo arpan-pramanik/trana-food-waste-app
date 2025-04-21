@@ -4,6 +4,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
 import google.generativeai as genai
+import re
 
 # Load environment variables
 load_dotenv()
@@ -48,7 +49,7 @@ def test_connection():
 
 @app.route('/api/suggestions', methods=['POST'])
 def get_suggestions():
-    """Get food reuse suggestions from Gemini AI"""
+    """Get creative reuse ideas for leftover ingredients from Gemini AI"""
     try:
         # Get ingredients from the request
         data = request.json
@@ -60,11 +61,27 @@ def get_suggestions():
                 "message": "No ingredients provided"
             }), 400
         
+        # Validate that the request is related to food/ingredients
+        if not is_food_related_query(ingredients):
+            return jsonify({
+                "status": "error",
+                "message": "Please enter food ingredients only. This AI is specialized in food waste reduction and cannot answer general questions."
+            }), 400
+        
         # Construct the prompt
-        prompt = f"""I have the following ingredients that I want to use up to reduce food waste: {ingredients}. 
-        Please suggest 3 creative and practical ways to use these ingredients. 
-        For each suggestion, provide a title and a brief description of how to prepare it. 
-        Keep suggestions concise and focused on reducing food waste. Format your response as a JSON array with objects containing 'title' and 'description' properties."""
+        prompt = f"""You are a creative culinary AI assistant focused exclusively on reducing food waste.
+        
+        Given the following ingredients: {ingredients}
+        
+        Please suggest 3 creative ways to use these ingredients to prevent food waste.
+        
+        Format your response as a JSON array of objects, where each object has the following structure:
+        {{
+            "title": "Name of the dish or recipe idea",
+            "description": "A brief description of how to prepare it and why it's good for reducing waste"
+        }}
+        
+        Each suggestion should be practical, use the ingredients provided, and focus on reducing food waste."""
         
         # Send the request to Gemini
         response = model.generate_content(prompt)
@@ -135,6 +152,13 @@ def get_learn_content():
                 "message": "No topic provided"
             }), 400
         
+        # Validate that the topic is related to food waste or sustainability
+        if not is_food_waste_related_topic(topic):
+            return jsonify({
+                "status": "error",
+                "message": "Please enter topics related to food waste, sustainable food practices, or eco-friendly cooking. This AI cannot answer general questions unrelated to these topics."
+            }), 400
+            
         # Construct the prompt
         prompt = f"""Please provide educational content about "{topic}" in the context of food waste reduction, 
         sustainable food practices, or environmentally friendly cooking methods.
@@ -201,6 +225,90 @@ def get_learn_content():
             "status": "error",
             "message": f"Error generating educational content: {str(e)}"
         }), 500
+
+# Helper functions for validating queries
+def is_food_related_query(query):
+    """Check if the query is related to food ingredients"""
+    # Common food keywords/patterns to check for
+    food_keywords = [
+        'recipe', 'food', 'ingredient', 'cook', 'meal', 'dish', 'vegetable', 'fruit',
+        'meat', 'dairy', 'grain', 'spice', 'herb', 'leftover', 'kitchen', 'bake',
+        'roast', 'fry', 'boil', 'grill', 'breakfast', 'lunch', 'dinner', 'snack',
+        'appetizer', 'dessert', 'bread', 'rice', 'pasta', 'potato', 'tomato', 'onion',
+        'garlic', 'chicken', 'beef', 'pork', 'fish', 'cheese', 'egg', 'milk', 'butter',
+        'oil', 'sugar', 'salt', 'pepper', 'flour', 'salad', 'soup', 'stew', 'sauce'
+    ]
+    
+    # Check if query contains basic food terms
+    query_lower = query.lower()
+    
+    # If the query specifically asks about non-food topics
+    non_food_patterns = [
+        r'what is the weather', r'who (is|was|are|were)', r'when (is|was|did)',
+        r'where (is|are|can)', r'how (tall|old|far|long|big|much money)',
+        r'capital of', r'population of', r'president of', r'history of',
+        r'math', r'calculate', r'solve', r'equation', r'physics', r'chemistry'
+    ]
+    
+    for pattern in non_food_patterns:
+        if re.search(pattern, query_lower):
+            return False
+    
+    # Detect if it contains food keywords
+    for keyword in food_keywords:
+        if keyword.lower() in query_lower:
+            return True
+            
+    # If no definitive non-food patterns but also no food keywords,
+    # assume it might be food-related for better user experience
+    return True
+
+def is_food_waste_related_topic(topic):
+    """Check if the topic is related to food waste or sustainability"""
+    # Keywords related to food waste and sustainability
+    relevant_keywords = [
+        'food waste', 'compost', 'leftovers', 'storage', 'preservation', 'sustainable',
+        'eco-friendly', 'green', 'environment', 'recycle', 'reuse', 'reduce',
+        'carbon footprint', 'climate', 'organic', 'local food', 'seasonal',
+        'meal plan', 'shopping list', 'expiration', 'best before', 'refrigeration',
+        'freezing', 'canning', 'fermentation', 'drying', 'pickling', 'garden',
+        'grow your own', 'farm to table', 'zero waste', 'biodegradable', 'packaging'
+    ]
+    
+    # Check if topic contains relevant terms
+    topic_lower = topic.lower()
+    
+    # If the topic specifically asks about non-food topics
+    non_relevant_patterns = [
+        r'what is the weather', r'who (is|was|are|were)', r'when (is|was|did)',
+        r'where (is|are|can)', r'how (tall|old|far|long|big|much money)',
+        r'capital of', r'population of', r'president of', r'history of',
+        r'math', r'calculate', r'solve', r'equation', r'physics', r'chemistry',
+        r'movie', r'film', r'celebrity', r'sports', r'game', r'politics'
+    ]
+    
+    for pattern in non_relevant_patterns:
+        if re.search(pattern, topic_lower):
+            return False
+    
+    # Detect if it contains relevant keywords
+    for keyword in relevant_keywords:
+        if keyword.lower() in topic_lower:
+            return True
+            
+    # For general food terms that might be related
+    food_keywords = [
+        'food', 'cooking', 'recipe', 'kitchen', 'meal', 'ingredient',
+        'vegetable', 'fruit', 'meat', 'dairy', 'grain', 'diet', 'nutrition'
+    ]
+    
+    for keyword in food_keywords:
+        if keyword.lower() in topic_lower:
+            return True
+            
+    # If no definitive non-relevant patterns but also no relevant keywords,
+    # it might still be indirectly related - allow it
+    return True
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000) 

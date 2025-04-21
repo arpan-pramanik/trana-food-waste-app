@@ -1,5 +1,5 @@
 /**
- * Carbon Calculator Module for Trana
+ * Carbon Calculator Module for Trāṇa
  * Calculates carbon footprint of food waste and tracks savings
  */
 
@@ -112,9 +112,9 @@ function calculateSingleItemEmissions() {
     document.getElementById('results-content').style.display = 'block';
     
     // Increment calculation count
-    let calculationCount = parseInt(localStorage.getItem('trana_carbon_calculations') || '0');
+    let calculationCount = parseInt(localStorage.getItem('Trāṇa_carbon_calculations') || '0');
     calculationCount++;
-    localStorage.setItem('trana_carbon_calculations', calculationCount.toString());
+    localStorage.setItem('Trāṇa_carbon_calculations', calculationCount.toString());
     
     // Update stats display
     document.getElementById('total-calculations').textContent = calculationCount;
@@ -259,7 +259,7 @@ function updateCarbonSavings(emissions) {
     totalSavedEmissions += emissions;
     
     // Save to local storage
-    localStorage.setItem('trana_carbon_savings', totalSavedEmissions.toString());
+    localStorage.setItem('Trāṇa_carbon_savings', totalSavedEmissions.toString());
     
     // Update display
     updateSavingsDisplay();
@@ -307,14 +307,14 @@ function removeWasteItem(index) {
  * Save waste items to local storage
  */
 function saveWasteItems() {
-    localStorage.setItem('trana_waste_items', JSON.stringify(wasteItems));
+    localStorage.setItem('Trāṇa_waste_items', JSON.stringify(wasteItems));
 }
 
 /**
  * Load waste items from local storage
  */
 function loadWasteItems() {
-    const savedItems = localStorage.getItem('trana_waste_items');
+    const savedItems = localStorage.getItem('Trāṇa_waste_items');
     if (savedItems) {
         try {
             wasteItems = JSON.parse(savedItems);
@@ -330,7 +330,7 @@ function loadWasteItems() {
  * Load carbon statistics from local storage
  */
 function loadCarbonStats() {
-    const savedEmissions = localStorage.getItem('trana_carbon_savings');
+    const savedEmissions = localStorage.getItem('Trāṇa_carbon_savings');
     if (savedEmissions) {
         totalSavedEmissions = parseFloat(savedEmissions);
         updateSavingsDisplay();
@@ -354,7 +354,7 @@ function formatFoodTypeName(foodType) {
  * Check for carbon-related badges and award if conditions are met
  */
 function checkForCarbonBadges() {
-    const storagePrefix = 'trana_'; // Should match your config
+    const storagePrefix = 'Trāṇa_'; // Should match your config
     const badgeData = JSON.parse(localStorage.getItem(`${storagePrefix}badges`) || '[]');
     
     // Count carbon calculations

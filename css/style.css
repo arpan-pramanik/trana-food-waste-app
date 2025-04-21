@@ -270,3 +270,23 @@ button:hover {
         text-align: center;
     }
 }
+
+/* Error messages */
+.error-message {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    color: #ff6b6b;
+}
+
+.error-message p.note {
+    font-size: 0.9rem;
+    margin-top: 15px;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* Content sections */

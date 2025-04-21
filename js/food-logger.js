@@ -1,5 +1,5 @@
 /**
- * Food Logger Module for Trana
+ * Food Logger Module for Trāṇa
  * Handles food inventory tracking, expiry notifications, and related functionality
  */
 
@@ -32,8 +32,8 @@ const deleteSelectedBtn = document.getElementById('delete-selected-btn');
 const clearAllBtn = document.getElementById('clear-all-btn');
 
 // Constants
-const STORAGE_KEY = 'trana_food_items';
-const USED_ITEMS_KEY = 'trana_used_items';
+const STORAGE_KEY = 'Trāṇa_food_items';
+const USED_ITEMS_KEY = 'Trāṇa_used_items';
 const EXPIRY_WARNING_DAYS = 3; // Days before expiry to show warning
 
 // State
@@ -563,7 +563,7 @@ function checkExpiringItems() {
  * Check for food logger badges and award if conditions are met
  */
 function checkForFoodLoggerBadges() {
-    const storagePrefix = 'trana_'; // Should match your config
+    const storagePrefix = 'Trāṇa_'; // Should match your config
     const badgeData = JSON.parse(localStorage.getItem(`${storagePrefix}badges`) || '[]');
     
     // Count total items logged (current + used)
@@ -592,7 +592,7 @@ function checkForFoodLoggerBadges() {
  * Check for food saver badges and award if conditions are met
  */
 function checkForFoodSaverBadges() {
-    const storagePrefix = 'trana_'; // Should match your config
+    const storagePrefix = 'Trāṇa_'; // Should match your config
     const badgeData = JSON.parse(localStorage.getItem(`${storagePrefix}badges`) || '[]');
     
     // Check for basic food saver badge (3+ items used)

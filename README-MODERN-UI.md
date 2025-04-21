@@ -1,6 +1,6 @@
-# Trana AI Suggestions Modern UI
+# Trāṇa AI Suggestions Modern UI
 
-This document explains the modern UI design implemented for the "Gemini AI Suggestions" page of the Trana application.
+This document explains the modern UI design implemented for the "AI Suggestions" page of the Trāṇa application.
 
 ## Design Overview
 

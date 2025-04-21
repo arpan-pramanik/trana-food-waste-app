@@ -1,5 +1,5 @@
 /**
- * Modern UI effects for Trana AI Suggestions page
+ * Modern UI effects for Trāṇa AI Suggestions page
  * Enhances the glassmorphism design with subtle interactive effects
  */
 

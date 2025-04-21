@@ -1,13 +1,13 @@
-# Trana - Food Waste Reduction App
+# Trāṇa - Food Waste Reduction App
 
 ## Overview
-Trana is a web application designed to help users reduce food waste and promote sustainability. The app provides various features such as food logging, carbon footprint calculation, AI-powered reuse suggestions, and educational resources to encourage sustainable practices.
+Trāṇa is a web application designed to help users reduce food waste and promote sustainability. The app provides various features such as food logging, carbon footprint calculation, AI-powered reuse suggestions, and educational resources to encourage sustainable practices.
 
 ## Features
-- **Homepage**: Introduction to Trana with navigation to other sections.
+- **Homepage**: Introduction to Trāṇa with navigation to other sections.
 - **Food Logger**: Log food items with details and receive alerts for items nearing expiry.
 - **Carbon Footprint Calculator**: Calculate the carbon emissions associated with wasted food.
-- **Gemini AI Suggestions**: Get creative reuse ideas for food items using the Gemini AI API.
+- **AI Suggestions**: Get creative reuse ideas for food items using the Gemini AI API.
 - **Learn Section**: Access static educational content on food storage, meal planning, and composting.
 - **Gamification**: Earn badges for actions taken to reduce food waste and track achievements.
 - **Profile Page**: View user statistics and edit personal information.
@@ -42,7 +42,7 @@ The project consists of:
 1. Clone the repository:
    ```
    git clone <repository-url>
-   cd trana-food-waste-app
+   cd Trāṇa-food-waste-app
    ```
 
 2. Set up the Python backend for AI features:
@@ -63,13 +63,13 @@ The project consists of:
 
 4. Open the web application:
    - Open the `index.html` file in your web browser
-   - Navigate to the "Gemini Suggestions" page
+   - Navigate to the "AI Suggestions" page
 
 ## Usage
 
-### Gemini AI Suggestions
+### AI Suggestions
 
-1. Go to the "Gemini Suggestions" page
+1. Go to the "AI Suggestions" page
 2. Enter the ingredients you want to use up
 3. Click "Get Reuse Ideas"
 4. View creative suggestions for using your ingredients
@@ -86,7 +86,7 @@ For detailed information, see [README-AI-BACKEND.md](README-AI-BACKEND.md).
 
 ## File Structure
 ```
-trana-food-waste-app
+Trāṇa-food-waste-app
 ├── index.html
 ├── pages
 │   ├── food.html

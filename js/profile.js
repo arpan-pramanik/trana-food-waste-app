@@ -1,5 +1,5 @@
 /**
- * Profile Module for Trana
+ * Profile Module for Trāṇa
  * Manages user profile settings, statistics, and data management
  */
 
@@ -28,7 +28,7 @@ const exportDataBtn = document.getElementById('export-data');
 const resetDataBtn = document.getElementById('reset-data');
 
 // Constants
-const STORAGE_PREFIX = CONFIG ? CONFIG.app.storagePrefix : 'trana_';
+const STORAGE_PREFIX = CONFIG ? CONFIG.app.storagePrefix : 'Trāṇa_';
 const USER_PROFILE_KEY = `${STORAGE_PREFIX}user_profile`;
 const FIRST_VISIT_KEY = `${STORAGE_PREFIX}first_visit`;
 
@@ -294,7 +294,7 @@ function exportUserData() {
     
     const downloadLink = document.createElement('a');
     downloadLink.href = url;
-    downloadLink.download = `trana_user_data_${formatDateForFilename(new Date())}.json`;
+    downloadLink.download = `Trāṇa_user_data_${formatDateForFilename(new Date())}.json`;
     
     // Trigger download
     document.body.appendChild(downloadLink);

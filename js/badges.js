@@ -1,5 +1,5 @@
 /**
- * Badges Module for Trana
+ * Badges Module for Trāṇa
  * Manages the gamification system, badge display, and badge unlock logic
  */
 
@@ -152,7 +152,7 @@ function setupEventListeners() {
  */
 function loadBadges() {
     // Load from localStorage using the prefix from config
-    const storagePrefix = CONFIG ? CONFIG.app.storagePrefix : 'trana_';
+    const storagePrefix = CONFIG ? CONFIG.app.storagePrefix : 'Trāṇa_';
     const storedBadges = localStorage.getItem(`${storagePrefix}badges`);
     
     if (storedBadges) {
@@ -343,7 +343,7 @@ function awardBadge(badgeId) {
  * Save badges to localStorage
  */
 function saveBadges() {
-    const storagePrefix = CONFIG ? CONFIG.app.storagePrefix : 'trana_';
+    const storagePrefix = CONFIG ? CONFIG.app.storagePrefix : 'Trāṇa_';
     localStorage.setItem(`${storagePrefix}badges`, JSON.stringify(userBadges));
 }
 
