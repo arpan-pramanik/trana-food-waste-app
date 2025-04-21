@@ -107,7 +107,17 @@ function calculateSingleItemEmissions() {
         <span class="co2-equivalent">Equivalent to driving a car for ${(emissions * 4).toFixed(1)} km</span>
     `;
     
-    resultValue.classList.add('show');
+    // Show the results content
+    document.getElementById('no-results').style.display = 'none';
+    document.getElementById('results-content').style.display = 'block';
+    
+    // Increment calculation count
+    let calculationCount = parseInt(localStorage.getItem('trana_carbon_calculations') || '0');
+    calculationCount++;
+    localStorage.setItem('trana_carbon_calculations', calculationCount.toString());
+    
+    // Update stats display
+    document.getElementById('total-calculations').textContent = calculationCount;
 }
 
 /**
@@ -140,16 +150,34 @@ function addItemToWasteList() {
  * Render the waste list in the UI
  */
 function renderWasteList() {
-    listItems.innerHTML = '';
+    // Get the list items container
+    const listItems = document.getElementById('list-items');
     
-    if (wasteItems.length === 0) {
-        emptyListMessage.style.display = 'block';
-        totalResult.style.display = 'none';
+    // Get the empty list message
+    const emptyListMessage = document.getElementById('empty-list-message');
+    
+    // Get the total result container
+    const totalResult = document.getElementById('total-result');
+    
+    if (!listItems || !emptyListMessage) {
+        console.error('List items container or empty message element not found');
         return;
     }
     
+    // Clear the list
+    listItems.innerHTML = '';
+    
+    if (wasteItems.length === 0) {
+        // Show empty message, hide the list
+        emptyListMessage.style.display = 'block';
+        if (totalResult) totalResult.style.display = 'none';
+        return;
+    }
+    
+    // Hide empty message, show the list
     emptyListMessage.style.display = 'none';
     
+    // Add each waste item to the list
     wasteItems.forEach((item, index) => {
         const listItem = document.createElement('div');
         listItem.className = 'waste-item';
@@ -241,8 +269,26 @@ function updateCarbonSavings(emissions) {
  * Update the savings display
  */
 function updateSavingsDisplay() {
-    totalSavedKg.textContent = `${totalSavedEmissions.toFixed(2)} kg`;
-    carEquivalent.textContent = `${(totalSavedEmissions * 4).toFixed(1)} km`;
+    // Update the carbon prevented display
+    const carbonPrevented = document.getElementById('carbon-prevented');
+    if (carbonPrevented) {
+        carbonPrevented.textContent = `${totalSavedEmissions.toFixed(2)} kg`;
+    }
+    
+    // Update the car savings equivalent
+    const carSavings = document.getElementById('car-savings');
+    if (carSavings) {
+        carSavings.textContent = `${(totalSavedEmissions * 4).toFixed(1)} km`;
+    }
+    
+    // Update other displays if available
+    if (totalSavedKg) {
+        totalSavedKg.textContent = `${totalSavedEmissions.toFixed(2)} kg`;
+    }
+    
+    if (carEquivalent) {
+        carEquivalent.textContent = `${(totalSavedEmissions * 4).toFixed(1)} km`;
+    }
 }
 
 /**

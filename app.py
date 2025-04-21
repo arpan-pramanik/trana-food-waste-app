@@ -121,5 +121,86 @@ def get_suggestions():
             "message": f"Error generating suggestions: {str(e)}"
         }), 500
 
+@app.route('/api/learn', methods=['POST'])
+def get_learn_content():
+    """Get educational content about food waste topics from Gemini AI"""
+    try:
+        # Get topic from the request
+        data = request.json
+        topic = data.get('topic', '')
+        
+        if not topic:
+            return jsonify({
+                "status": "error",
+                "message": "No topic provided"
+            }), 400
+        
+        # Construct the prompt
+        prompt = f"""Please provide educational content about "{topic}" in the context of food waste reduction, 
+        sustainable food practices, or environmentally friendly cooking methods.
+        
+        Format your response as a JSON object with the following structure:
+        {{
+            "title": "A clear title for this educational content",
+            "introduction": "A brief introduction to the topic (1-2 sentences)",
+            "content": "The main educational content with informative paragraphs. Use HTML formatting (<p>, <ul>, <li>, <strong>) for better display",
+            "tips": ["Practical tip 1", "Practical tip 2", "Practical tip 3"],
+            "actionSteps": ["Step 1 to implement this knowledge", "Step 2", "Step 3"]
+        }}
+        
+        Make sure the content is informative, educational, and focused on sustainability and reducing food waste.
+        Keep the entire response under 500 words."""
+        
+        # Send the request to Gemini
+        response = model.generate_content(prompt)
+        
+        # Try to parse the response as JSON
+        content = {}
+        try:
+            # Extract text content from response
+            response_text = response.text
+            
+            # Look for JSON content within response text
+            json_start = response_text.find('{')
+            json_end = response_text.rfind('}') + 1
+            
+            if json_start >= 0 and json_end > json_start:
+                json_content = response_text[json_start:json_end]
+                content = json.loads(json_content)
+            else:
+                # If parsing fails, create a structured response manually
+                return jsonify({
+                    "status": "success",
+                    "raw_response": response.text,
+                    "content": {
+                        "title": f"About {topic}",
+                        "content": response.text
+                    }
+                })
+        except Exception as e:
+            print(f"Error parsing response: {e}")
+            print(f"Raw response: {response.text}")
+            # If parsing fails, return the raw text
+            return jsonify({
+                "status": "success",
+                "raw_response": response.text,
+                "content": {
+                    "title": f"About {topic}",
+                    "content": response.text
+                }
+            })
+        
+        return jsonify({
+            "status": "success",
+            "topic": topic,
+            "content": content
+        })
+    
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": f"Error generating educational content: {str(e)}"
+        }), 500
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000) 

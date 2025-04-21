@@ -6,8 +6,10 @@
     <title>Food Logger - Trāṇa</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/food-logger.css">
+    <link rel="stylesheet" href="../css/modern-style.css">
 </head>
-<body>
+<body class="food-page dark-theme">
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -129,8 +131,8 @@
                         </div>
                         
                         <div class="form-actions">
-                            <button type="submit" class="btn primary-btn">Add Food Item</button>
-                            <button type="reset" class="btn secondary-btn">Clear Form</button>
+                            <button type="submit" class="primary-btn">Add Food Item</button>
+                            <button type="reset" class="secondary-btn">Clear Form</button>
                         </div>
                     </form>
                 </div>
@@ -139,9 +141,9 @@
                     <div class="food-list-header">
                         <h3>Your Food Inventory</h3>
                         <div class="list-filters">
-                            <button class="btn filter-btn active" data-filter="all">All</button>
-                            <button class="btn filter-btn" data-filter="expiring-soon">Expiring Soon</button>
-                            <button class="btn filter-btn" data-filter="expired">Expired</button>
+                            <button class="filter-btn active" data-filter="all">All</button>
+                            <button class="filter-btn" data-filter="expiring-soon">Expiring Soon</button>
+                            <button class="filter-btn" data-filter="expired">Expired</button>
                             <select id="category-filter">
                                 <option value="all">All Categories</option>
                                 <option value="fruits">Fruits</option>
@@ -166,10 +168,10 @@
                 
                 <div class="list-actions">
                     <div class="action-buttons">
-                        <button id="mark-used-btn" class="btn secondary-btn" disabled>Mark Selected as Used</button>
-                        <button id="delete-selected-btn" class="btn danger-btn" disabled>Delete Selected</button>
+                        <button id="mark-used-btn" class="secondary-btn" disabled>Mark Selected as Used</button>
+                        <button id="delete-selected-btn" class="danger-btn" disabled>Delete Selected</button>
                     </div>
-                    <button id="clear-all-btn" class="btn danger-outline-btn">Clear All Items</button>
+                    <button id="clear-all-btn" class="danger-outline-btn">Clear All Items</button>
                 </div>
                 
                 <div class="tips-card">
@@ -211,6 +213,7 @@
         </div>
     </footer>
 
+    <script src="../js/config.js"></script>
     <script src="../js/main.js"></script>
     <script src="../js/storage.js"></script>
     <script src="../js/food-logger.js"></script>

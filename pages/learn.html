@@ -4,55 +4,257 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn - Trāṇa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/modern-style.css">
+    <link rel="stylesheet" href="../css/learn.css">
+    <link rel="stylesheet" href="../css/typing-animation.css">
 </head>
-<body>
+<body class="learn-page">
     <header>
-        <h1>Trāṇa – Rescuing Food, Sustaining Life</h1>
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="food.html">Food Logger</a></li>
-                <li><a href="carbon.html">Carbon Calculator</a></li>
-                <li><a href="ai.html">AI Suggestions</a></li>
-                <li><a href="learn.html">Learn</a></li>
-                <li><a href="badges.html">Badges</a></li>
-                <li><a href="profile.html">Profile</a></li>
-            </ul>
-        </nav>
+        <div class="container header-container">
+            <div class="logo">
+                <h1><a href="../index.html">Trāṇa</a></h1>
+                <p class="tagline">Rescuing Food, Sustaining Life</p>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="food.html">Food Logger</a></li>
+                    <li><a href="carbon.html">Carbon Calculator</a></li>
+                    <li><a href="ai.html">Gemini Suggestions</a></li>
+                    <li><a href="learn.html" class="active">Learn</a></li>
+                    <li><a href="badges.html">Badges</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+    
     <main>
-        <section>
-            <h2>Food Storage Tips</h2>
-            <p>Learn how to store your food properly to extend its shelf life and reduce waste.</p>
-            <details>
-                <summary>Fruits and Vegetables</summary>
-                <p>Store fruits and vegetables separately. Some fruits emit ethylene gas, which can cause vegetables to spoil faster.</p>
-            </details>
-            <details>
-                <summary>Meat and Dairy</summary>
-                <p>Keep meat and dairy products in the coldest part of your refrigerator to maintain freshness.</p>
-            </details>
+        <section class="page-header">
+            <div class="container">
+                <h2>Learn & Educational Resources</h2>
+                <p>Gain knowledge about food waste reduction and sustainable practices</p>
+            </div>
         </section>
-        <section>
-            <h2>Meal Planning</h2>
-            <p>Plan your meals for the week to avoid buying unnecessary items and wasting food.</p>
-            <details>
-                <summary>Creating a Meal Plan</summary>
-                <p>List out meals for each day and create a shopping list based on the ingredients needed.</p>
-            </details>
-        </section>
-        <section>
-            <h2>Composting</h2>
-            <p>Learn how to compost your food scraps to reduce waste and create nutrient-rich soil.</p>
-            <details>
-                <summary>What to Compost</summary>
-                <p>Fruit and vegetable scraps, coffee grounds, and eggshells are great for composting.</p>
-            </details>
+        
+        <section class="dynamic-learn-content">
+            <div class="container">
+                <div class="card topic-search-card">
+                    <h3 class="section-title">Explore Food Waste Topics</h3>
+                    <p>Search for any topic related to food waste reduction, storage, or sustainable practices.</p>
+                    
+                    <form id="topic-form">
+                        <div class="form-group">
+                            <label for="topic-input">What would you like to learn about?</label>
+                            <input 
+                                type="text" 
+                                id="topic-input" 
+                                placeholder="e.g., composting, zero waste cooking, food preservation..."
+                                required
+                            >
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="primary-btn">
+                                <span class="btn-text">Get Information</span>
+                                <span class="btn-icon">🔍</span>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <div class="popular-topics-section">
+                        <h4>Popular Topics</h4>
+                        <div class="popular-topics" id="popular-topics">
+                            <!-- Popular topics will be added here via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="content-container" class="content-container">
+                    <div class="loading-indicator" id="loading-indicator">
+                        <div class="spinner"></div>
+                        <p>Gathering educational content...</p>
+                    </div>
+                    
+                    <div class="content-display" id="content-display">
+                        <!-- Content will be populated here via JavaScript -->
+                    </div>
+                    
+                    <div class="no-content" id="no-content">
+                        <p>Enter a topic above to learn about food waste reduction and sustainable practices!</p>
+                    </div>
+                    
+                    <div class="error-message" id="error-message">
+                        <p>Sorry, we couldn't retrieve content at this time. Please try again later.</p>
+                    </div>
+                </div>
+                
+                <div class="two-column-layout">
+                    <div class="card learning-card static-content">
+                        <h3 class="section-title">Food Storage Tips</h3>
+                        <p>Learn how to store your food properly to extend its shelf life and reduce waste.</p>
+                        
+                        <details class="glass-effect">
+                            <summary>Fruits and Vegetables</summary>
+                            <div class="details-content">
+                                <p>Store fruits and vegetables separately. Some fruits emit ethylene gas, which can cause vegetables to spoil faster.</p>
+                                <ul>
+                                    <li>Keep apples, bananas, and tomatoes away from other produce as they emit more ethylene gas.</li>
+                                    <li>Store leafy greens with a paper towel to absorb excess moisture.</li>
+                                    <li>Keep root vegetables in a cool, dark place rather than the refrigerator.</li>
+                                </ul>
+                            </div>
+                        </details>
+                        
+                        <details class="glass-effect">
+                            <summary>Meat and Dairy</summary>
+                            <div class="details-content">
+                                <p>Keep meat and dairy products in the coldest part of your refrigerator to maintain freshness.</p>
+                                <ul>
+                                    <li>Store raw meat on the bottom shelf to prevent drips onto other foods.</li>
+                                    <li>Keep cheese wrapped in breathable paper rather than plastic wrap.</li>
+                                    <li>Store milk and dairy away from the door where temperature fluctuates more.</li>
+                                </ul>
+                            </div>
+                        </details>
+                    </div>
+                
+                    <div class="card search-history-card">
+                        <h3 class="section-title">Recently Explored Topics</h3>
+                        <div class="history-list" id="search-history-list">
+                            <!-- History will be populated here via JavaScript -->
+                        </div>
+                        <p class="empty-history-message" id="empty-history-message">Your search history will appear here.</p>
+                        
+                        <div class="learn-info-card">
+                            <h3>About Learn Module</h3>
+                            <p>This feature uses Google's Gemini AI to provide educational content about food waste reduction, sustainable practices, and eco-friendly methods.</p>
+                            <div class="learn-stats">
+                                <div class="learn-stat">
+                                    <span id="learned-topics-count">0</span>
+                                    <p>Topics Explored</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card learning-card static-content">
+                    <h3 class="section-title">Meal Planning</h3>
+                    <p>Plan your meals for the week to avoid buying unnecessary items and wasting food.</p>
+                    
+                    <details class="glass-effect">
+                        <summary>Creating a Meal Plan</summary>
+                        <div class="details-content">
+                            <p>List out meals for each day and create a shopping list based on the ingredients needed.</p>
+                            <ul>
+                                <li>Check your inventory before shopping to avoid buying duplicates.</li>
+                                <li>Plan meals that can use similar ingredients to reduce waste.</li>
+                                <li>Consider batch cooking and freezing portions for future use.</li>
+                            </ul>
+                        </div>
+                    </details>
+                    
+                    <details class="glass-effect">
+                        <summary>Smart Shopping</summary>
+                        <div class="details-content">
+                            <p>Buy only what you need and will use within a reasonable timeframe.</p>
+                            <ul>
+                                <li>Shop with a list and stick to it to avoid impulse purchases.</li>
+                                <li>Be realistic about how much fresh produce you'll consume.</li>
+                                <li>Check expiration dates before purchasing.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+                
+                <div class="card learning-card static-content">
+                    <h3 class="section-title">Composting</h3>
+                    <p>Learn how to compost your food scraps to reduce waste and create nutrient-rich soil.</p>
+                    
+                    <details class="glass-effect">
+                        <summary>What to Compost</summary>
+                        <div class="details-content">
+                            <p>Fruit and vegetable scraps, coffee grounds, and eggshells are great for composting.</p>
+                            <ul>
+                                <li>Green materials: vegetable scraps, coffee grounds, grass clippings</li>
+                                <li>Brown materials: dry leaves, newspaper, cardboard</li>
+                                <li>Avoid: meat, dairy, oils, and processed foods</li>
+                            </ul>
+                        </div>
+                    </details>
+                    
+                    <details class="glass-effect">
+                        <summary>Starting a Compost Bin</summary>
+                        <div class="details-content">
+                            <p>Begin with a suitable container and alternate layers of green and brown materials.</p>
+                            <ul>
+                                <li>Choose between outdoor composting or indoor vermicomposting.</li>
+                                <li>Maintain the right moisture level - damp like a wrung-out sponge.</li>
+                                <li>Turn your compost regularly to aerate it and speed decomposition.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+                
+                <div class="card learning-card static-content">
+                    <h3 class="section-title">Environmental Impact</h3>
+                    <p>Understand how food waste affects our planet and why reducing it matters.</p>
+                    
+                    <details class="glass-effect">
+                        <summary>Carbon Footprint</summary>
+                        <div class="details-content">
+                            <p>Food waste is responsible for about 8% of global greenhouse gas emissions.</p>
+                            <ul>
+                                <li>Food decomposing in landfills produces methane, a potent greenhouse gas.</li>
+                                <li>Resources used in food production (water, energy, land) are wasted when food is discarded.</li>
+                                <li>Transportation and processing of wasted food adds to carbon emissions.</li>
+                            </ul>
+                        </div>
+                    </details>
+                </div>
+            </div>
         </section>
     </main>
+
     <footer>
-        <p>&copy; 2023 Trāṇa. All rights reserved.</p>
+        <div class="container footer-container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>Trāṇa</h2>
+                    <p class="tagline">Rescuing Food, Sustaining Life</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="food.html">Food Logger</a></li>
+                        <li><a href="carbon.html">Carbon Calculator</a></li>
+                        <li><a href="ai.html">Gemini Suggestions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="learn.html">Learn</a></li>
+                        <li><a href="badges.html">Badges</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copyright">&copy; 2025 Trāṇa. All rights reserved.</p>
+        </div>
     </footer>
+
+    <script src="../js/config.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/badges.js"></script>
+    <script src="../js/learn.js"></script>
+    <script src="../js/typing-animation.js"></script>
 </body>
 </html>

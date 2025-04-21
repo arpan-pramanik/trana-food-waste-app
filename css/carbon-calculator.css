@@ -1,0 +1,669 @@
+/**
+ * Carbon Calculator specific styling
+ * Clean, eco-friendly design with dark theme support
+ */
+
+:root {
+  --carbon-primary: #2b9348;
+  --carbon-primary-light: #55a630;
+  --carbon-primary-dark: #1e6b2d;
+  --carbon-secondary: #bee9b4;
+  --carbon-tertiary: #d8f3dc;
+  --carbon-text: #1b4332;
+  --carbon-text-light: #2d6a4f;
+  --carbon-text-muted: #52796f;
+  --carbon-border: #dce7dc;
+  --carbon-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --carbon-card-shadow-hover: 0 3px 12px rgba(0, 0, 0, 0.08);
+  --carbon-transition: all 0.2s ease;
+  --carbon-border-radius: 10px;
+}
+
+body.carbon-page {
+  background-color: var(--black);
+}
+
+/* Carbon Stats Cards */
+.carbon-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  background-color: var(--glass-background);
+  border-radius: var(--carbon-border-radius);
+  box-shadow: var(--carbon-card-shadow);
+  padding: 25px;
+  text-align: center;
+  transition: var(--carbon-transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--carbon-card-shadow-hover);
+}
+
+.stat-card:nth-child(1) {
+  border-top: 4px solid var(--carbon-primary);
+}
+
+.stat-card:nth-child(2) {
+  border-top: 4px solid var(--carbon-primary-light);
+}
+
+.stat-card:nth-child(3) {
+  border-top: 4px solid var(--carbon-secondary);
+}
+
+.stat-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--carbon-primary);
+}
+
+.stat-card span:nth-child(2) {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 5px;
+}
+
+.stat-card span:nth-child(3) {
+  font-size: 0.9rem;
+  color: var(--off-white);
+}
+
+/* Calculator Cards */
+.carbon-calculator-card {
+  background-color: var(--glass-background);
+  border-radius: var(--carbon-border-radius);
+  box-shadow: var(--carbon-card-shadow);
+  padding: 25px;
+  margin-bottom: 30px;
+  border: var(--glass-border);
+}
+
+.carbon-calculator-card h3 {
+  color: var(--carbon-primary);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.carbon-calculator-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--carbon-primary);
+  border-radius: 3px;
+}
+
+/* Form Styling */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--off-white);
+}
+
+.quantity-input {
+  display: flex;
+}
+
+.quantity-input input {
+  flex: 1;
+  border-radius: 5px 0 0 5px;
+  border-right: none;
+}
+
+.quantity-input select {
+  width: 80px;
+  border-radius: 0 5px 5px 0;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+/* Custom Form Controls */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--carbon-border);
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  color: var(--white);
+  background-color: var(--dark-gray);
+  transition: var(--carbon-transition);
+  box-sizing: border-box;
+}
+
+/* Dark theme overrides for Carbon Calculator */
+body.carbon-page.dark-theme input[type="text"],
+body.carbon-page.dark-theme input[type="number"],
+body.carbon-page.dark-theme select,
+body.carbon-page.dark-theme textarea,
+.carbon-page select,
+.carbon-page input {
+  background-color: var(--dark-gray);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.carbon-page select option {
+  background-color: var(--dark-gray);
+  color: var(--white);
+  padding: 8px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--carbon-primary);
+  box-shadow: 0 0 0 2px rgba(43, 147, 72, 0.1);
+}
+
+/* Buttons */
+.primary-btn {
+  background-color: var(--carbon-primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--carbon-transition);
+}
+
+.primary-btn:hover {
+  background-color: var(--carbon-primary-dark);
+}
+
+.secondary-btn {
+  background-color: var(--dark-gray);
+  color: var(--carbon-primary);
+  border: 1px solid var(--carbon-primary);
+  border-radius: 6px;
+  padding: 12px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--carbon-transition);
+}
+
+.secondary-btn:hover {
+  background-color: rgba(45, 106, 79, 0.2);
+}
+
+/* Results Card */
+.carbon-results {
+  background-color: var(--glass-background);
+  border-radius: var(--carbon-border-radius);
+  box-shadow: var(--carbon-card-shadow);
+  padding: 25px;
+  margin-bottom: 30px;
+  border: var(--glass-border);
+}
+
+.results-header {
+  color: var(--carbon-primary);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--off-white);
+}
+
+.results-content {
+  display: none;
+}
+
+.results-summary {
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 25px;
+  background-color: rgba(43, 147, 72, 0.1);
+  border-radius: 8px;
+}
+
+.total-emissions {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--carbon-primary);
+  margin-bottom: 5px;
+}
+
+.emissions-label {
+  font-size: 1rem;
+  color: var(--off-white);
+}
+
+.results-details {
+  margin-top: 25px;
+}
+
+.results-details h4 {
+  font-size: 1.1rem;
+  color: var(--white);
+  margin-bottom: 15px;
+}
+
+.emissions-breakdown {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px;
+}
+
+.emission-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.emission-item:last-child {
+  border-bottom: none;
+}
+
+.emission-label {
+  font-weight: 500;
+  color: var(--off-white);
+}
+
+.emission-value {
+  color: var(--white);
+}
+
+/* Impact Insights */
+.impact-insights {
+  background-color: var(--glass-background);
+  border-radius: var(--carbon-border-radius);
+  box-shadow: var(--carbon-card-shadow);
+  padding: 25px;
+  margin-bottom: 30px;
+  border: var(--glass-border);
+}
+
+.impact-insights h3 {
+  color: var(--carbon-primary);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.impact-card {
+  background-color: rgba(43, 147, 72, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  transition: var(--carbon-transition);
+}
+
+.impact-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--carbon-card-shadow);
+}
+
+.impact-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--carbon-primary);
+}
+
+.impact-title {
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--white);
+}
+
+.impact-description {
+  color: var(--off-white);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Eco Tips */
+.eco-tips {
+  background-color: var(--glass-background);
+  border-radius: var(--carbon-border-radius);
+  box-shadow: var(--carbon-card-shadow);
+  padding: 25px;
+  border: var(--glass-border);
+}
+
+.eco-tips h3 {
+  color: var(--carbon-primary);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.tips-list {
+  display: grid;
+  gap: 15px;
+}
+
+.tip-item {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.tip-icon {
+  font-size: 1.5rem;
+  color: var(--carbon-primary);
+}
+
+.tip-content h4 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: var(--white);
+}
+
+.tip-content p {
+  color: var(--off-white);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* History Section */
+.calculation-history {
+  background-color: var(--glass-background);
+  border-radius: var(--carbon-border-radius);
+  box-shadow: var(--carbon-card-shadow);
+  padding: 25px;
+  margin: 30px 0;
+  border: var(--glass-border);
+}
+
+.calculation-history h3 {
+  color: var(--carbon-primary);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: var(--carbon-transition);
+}
+
+.history-item:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.history-date {
+  font-size: 0.85rem;
+  color: var(--off-white);
+}
+
+.history-emissions {
+  font-weight: 600;
+  color: var(--carbon-primary);
+}
+
+.empty-history {
+  text-align: center;
+  padding: 20px;
+  color: var(--off-white);
+}
+
+/* Waste List Container */
+.waste-list-container {
+  background-color: var(--glass-background);
+  border-radius: var(--carbon-border-radius);
+  box-shadow: var(--carbon-card-shadow);
+  padding: 25px;
+  margin-bottom: 30px;
+  border: var(--glass-border);
+}
+
+.waste-list-container h3 {
+  color: var(--carbon-primary);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.empty-list-message {
+  text-align: center;
+  padding: 30px 15px;
+  color: var(--off-white);
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+.list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.waste-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  transition: var(--carbon-transition);
+}
+
+.waste-item:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.waste-item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.food-type {
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.food-quantity {
+  font-size: 0.85rem;
+  color: var(--off-white);
+  opacity: 0.8;
+}
+
+.waste-item-emissions {
+  font-weight: 500;
+  color: var(--carbon-primary);
+}
+
+.remove-item {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 5px;
+  transition: color 0.2s;
+}
+
+.remove-item:hover {
+  color: var(--white);
+}
+
+.list-actions {
+  margin: 20px 0;
+}
+
+.total-result {
+  background-color: rgba(43, 147, 72, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+  display: none;
+}
+
+.result-summary {
+  margin-bottom: 15px;
+}
+
+.total-label {
+  display: block;
+  font-size: 1rem;
+  color: var(--white);
+  margin-bottom: 5px;
+}
+
+.total-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--carbon-primary);
+}
+
+.result-equivalents {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.equivalent-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.equivalent-icon {
+  font-size: 1.5rem;
+}
+
+.equivalent-text {
+  color: var(--off-white);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .carbon-stats,
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .form-actions button {
+    width: 100%;
+  }
+}
+
+/* Dark Theme Overrides - Catch-all rules */
+.carbon-page.dark-theme .stat-card,
+.carbon-page.dark-theme .carbon-calculator-card,
+.carbon-page.dark-theme .carbon-results,
+.carbon-page.dark-theme .impact-insights,
+.carbon-page.dark-theme .eco-tips,
+.carbon-page.dark-theme .calculation-history,
+.carbon-page.dark-theme .impact-card {
+  background-color: var(--glass-background);
+  border: var(--glass-border);
+  color: var(--white);
+}
+
+.carbon-page.dark-theme h3,
+.carbon-page.dark-theme h4 {
+  color: var(--carbon-primary);
+}
+
+.carbon-page.dark-theme p,
+.carbon-page.dark-theme span:not(.total-emissions):not(.history-emissions) {
+  color: var(--off-white);
+}
+
+.carbon-page.dark-theme .results-summary {
+  background-color: rgba(43, 147, 72, 0.1);
+}
+
+.carbon-page.dark-theme .history-item {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.carbon-page.dark-theme .history-item:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.carbon-page.dark-theme .emission-item,
+.carbon-page.dark-theme .results-details .emissions-breakdown {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Notification toast */
+.notification-toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 15px 20px;
+  background-color: var(--glass-background);
+  color: var(--white);
+  border-radius: 8px;
+  box-shadow: var(--glass-shadow), 0 0 10px rgba(43, 147, 72, 0.3);
+  border: 1px solid rgba(43, 147, 72, 0.2);
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  max-width: 300px;
+}
+
+.notification-toast.show {
+  opacity: 1;
+  transform: translateY(0);
+} 

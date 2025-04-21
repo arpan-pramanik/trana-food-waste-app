@@ -274,14 +274,30 @@ function displaySuggestions(ingredients, suggestions) {
     suggestions.forEach((suggestion, index) => {
         const suggestionCard = document.createElement('div');
         suggestionCard.className = 'suggestion-card';
-        suggestionCard.innerHTML = `
-            <h4>${suggestion.title}</h4>
-            <p>${suggestion.description}</p>
-            <button class="btn secondary-btn save-suggestion" data-index="${index}">
-                <span class="btn-text">Save Suggestion</span>
-                <span class="btn-icon">💾</span>
-            </button>
+        
+        // Create heading element
+        const heading = document.createElement('h4');
+        heading.textContent = suggestion.title;
+        
+        // Create description element
+        const description = document.createElement('p');
+        description.textContent = suggestion.description;
+        
+        // Create save button
+        const saveButton = document.createElement('button');
+        saveButton.className = 'save-suggestion';
+        saveButton.dataset.index = index;
+        saveButton.innerHTML = `
+            <span class="btn-text">Save Suggestion</span>
+            <span class="btn-icon">💾</span>
         `;
+        
+        // Append elements to card in proper order
+        suggestionCard.appendChild(heading);
+        suggestionCard.appendChild(description);
+        suggestionCard.appendChild(saveButton);
+        
+        // Add card to list
         suggestionsList.appendChild(suggestionCard);
     });
     

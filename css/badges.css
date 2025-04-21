@@ -1,0 +1,373 @@
+/**
+ * Badges page specific styling
+ * Modern, clean design for the badge system
+ */
+
+:root {
+  --badge-primary: #3a86ff;
+  --badge-primary-light: #61a5ff;
+  --badge-secondary: #38b000;
+  --badge-warning: #ffbe0b;
+  --badge-inactive: #dee2e6;
+  --badge-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --badge-card-shadow-hover: 0 3px 12px rgba(0, 0, 0, 0.1);
+  --badge-transition: all 0.2s ease;
+  --badge-border-radius: 10px;
+}
+
+body {
+  background-color: #f9fafb;
+}
+
+/* Badges Summary Card */
+.badges-summary {
+  margin-bottom: 30px;
+}
+
+.summary-card {
+  background-color: white;
+  border-radius: var(--badge-border-radius);
+  box-shadow: var(--badge-card-shadow);
+  padding: 25px;
+  transition: var(--badge-transition);
+}
+
+.summary-card h3 {
+  color: #333;
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.badges-stats {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.badge-stat {
+  text-align: center;
+}
+
+.badge-stat span:first-child {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--badge-primary);
+  margin-bottom: 5px;
+}
+
+.badge-stat span:last-child {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.badges-progress {
+  margin: 20px 0 10px;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--badge-primary);
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* Badge Categories */
+.badge-categories {
+  margin-bottom: 30px;
+}
+
+.category-tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: #666;
+  padding: 8px 16px;
+  margin-right: 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.tab-btn.active {
+  background-color: var(--badge-primary);
+  color: white;
+}
+
+/* Badge Cards */
+.badges-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.badge-card {
+  background-color: white;
+  border-radius: var(--badge-border-radius);
+  padding: 20px;
+  box-shadow: var(--badge-card-shadow);
+  transition: var(--badge-transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.badge-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--badge-card-shadow-hover);
+}
+
+.badge-card.earned {
+  border-top: 4px solid var(--badge-secondary);
+}
+
+.badge-card.locked {
+  border-top: 4px solid var(--badge-inactive);
+  opacity: 0.75;
+}
+
+.badge-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.badge-content {
+  flex: 1;
+}
+
+.badge-title {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 600;
+}
+
+.badge-description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.badge-requirement {
+  font-size: 0.85rem;
+  color: #666;
+  font-style: italic;
+}
+
+.badge-earned-date {
+  margin-top: auto;
+  font-size: 0.8rem;
+  color: #999;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+/* Locked Badges Section */
+.locked-badges-section {
+  margin-top: 40px;
+}
+
+.locked-badges-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.section-description {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.locked-badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 15px;
+}
+
+/* Empty States */
+.badges-empty, 
+.category-empty, 
+.all-badges-earned {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f8f9fa;
+  border-radius: var(--badge-border-radius);
+  margin: 20px 0;
+}
+
+.empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.badges-empty p,
+.category-empty p,
+.all-badges-earned p {
+  color: #666;
+  margin-bottom: 20px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Badge Info Section */
+.badges-info {
+  margin-top: 40px;
+  background-color: white;
+  border-radius: var(--badge-border-radius);
+  padding: 30px;
+  box-shadow: var(--badge-card-shadow);
+}
+
+.badges-info h3 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.badges-info p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.badge-benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.benefit-icon {
+  font-size: 1.5rem;
+  color: var(--badge-primary);
+}
+
+.benefit-text h4 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.benefit-text p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* Badge Notification */
+.badge-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: white;
+  border-radius: var(--badge-border-radius);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.15);
+  padding: 15px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  z-index: 1000;
+  max-width: 350px;
+  transform: translateY(150%);
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.badge-notification.show {
+  transform: translateY(0);
+}
+
+.notification-icon {
+  font-size: 2rem;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-content h4 {
+  margin-bottom: 5px;
+  color: var(--badge-primary);
+  font-size: 1rem;
+}
+
+.notification-content p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.notification-description {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 5px;
+}
+
+.notification-close {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  margin-left: 10px;
+}
+
+.notification-close:hover {
+  color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .badges-stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .badge-benefits {
+    grid-template-columns: 1fr;
+  }
+  
+  .badges-container,
+  .locked-badges {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-tabs {
+    justify-content: flex-start;
+    padding-bottom: 10px;
+  }
+  
+  .badge-notification {
+    left: 20px;
+    right: 20px;
+    max-width: none;
+  }
+} 
