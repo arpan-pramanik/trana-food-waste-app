@@ -167,13 +167,13 @@ def get_learn_content():
         {{
             "title": "A clear title for this educational content",
             "introduction": "A brief introduction to the topic (1-2 sentences)",
-            "content": "The main educational content with informative paragraphs. Use HTML formatting (<p>, <ul>, <li>, <strong>) for better display",
+            "content": "The main educational content with informative paragraphs. Use HTML formatting (<p>, <ul>, <li>, <strong>) for better display. DO NOT use markdown.",
             "tips": ["Practical tip 1", "Practical tip 2", "Practical tip 3"],
             "actionSteps": ["Step 1 to implement this knowledge", "Step 2", "Step 3"]
         }}
         
         Make sure the content is informative, educational, and focused on sustainability and reducing food waste.
-        Keep the entire response under 500 words."""
+        Keep the entire response under 350 words and ensure the JSON is complete and properly closed."""
         
         # Send the request to Gemini
         response = model.generate_content(prompt)
@@ -190,29 +190,61 @@ def get_learn_content():
             
             if json_start >= 0 and json_end > json_start:
                 json_content = response_text[json_start:json_end]
-                content = json.loads(json_content)
-            else:
-                # If parsing fails, create a structured response manually
-                return jsonify({
-                    "status": "success",
-                    "raw_response": response.text,
-                    "content": {
-                        "title": f"About {topic}",
-                        "content": response.text
-                    }
-                })
+                
+                # Try to parse the JSON
+                try:
+                    content = json.loads(json_content)
+                except json.JSONDecodeError:
+                    # If parsing fails, try to fix common JSON issues
+                    # 1. Fix truncated content by ensuring quotes match
+                    fixed_json = json_content
+                    quote_count = fixed_json.count('"')
+                    if quote_count % 2 != 0:  # Odd number of quotes (missing closing quote)
+                        last_quote_pos = fixed_json.rfind('"')
+                        if last_quote_pos != -1:
+                            # If there's an open array of tips or actionSteps, close it
+                            if "]" not in fixed_json[fixed_json.rfind("["):]:
+                                fixed_json = fixed_json[:last_quote_pos+1] + "]}"
+                            else:
+                                fixed_json = fixed_json[:last_quote_pos+1] + "}"
+                    
+                    # 2. Ensure array brackets match
+                    open_brackets = fixed_json.count("[")
+                    close_brackets = fixed_json.count("]")
+                    if open_brackets > close_brackets:
+                        fixed_json = fixed_json + "]" * (open_brackets - close_brackets)
+                    
+                    # Try to parse the fixed JSON
+                    try:
+                        content = json.loads(fixed_json)
+                    except json.JSONDecodeError:
+                        # If still cannot parse, create a structured response manually
+                        raise
+            
+            # If JSON parsing fails, create a structured response
+            if not content:
+                # Create a simple structured response
+                content = {
+                    "title": f"About {topic}",
+                    "introduction": "Here's some information on this topic.",
+                    "content": sanitize_content(response_text),
+                    "tips": ["Be mindful of food waste", "Plan your meals", "Store food properly"],
+                    "actionSteps": ["Implement one new practice", "Share knowledge with others", "Track your progress"]
+                }
         except Exception as e:
             print(f"Error parsing response: {e}")
             print(f"Raw response: {response.text}")
-            # If parsing fails, return the raw text
-            return jsonify({
-                "status": "success",
-                "raw_response": response.text,
-                "content": {
-                    "title": f"About {topic}",
-                    "content": response.text
-                }
-            })
+            # Create a structured response
+            content = {
+                "title": f"About {topic}",
+                "introduction": "Here's some information on this topic.",
+                "content": sanitize_content(response_text),
+                "tips": ["Be mindful of food waste", "Plan your meals", "Store food properly"],
+                "actionSteps": ["Implement one new practice", "Share knowledge with others", "Track your progress"]
+            }
+        
+        # Ensure all required fields are present and properly formatted
+        content = validate_and_fix_content(content, topic)
         
         return jsonify({
             "status": "success",
@@ -309,6 +341,56 @@ def is_food_waste_related_topic(topic):
     # If no definitive non-relevant patterns but also no relevant keywords,
     # it might still be indirectly related - allow it
     return True
+
+# Helper function to sanitize content
+def sanitize_content(text):
+    """Clean up content to make it suitable for display"""
+    # Remove any code blocks, JSON formatting, or other technical elements
+    text = re.sub(r'```json.*?```', '', text, flags=re.DOTALL)
+    text = re.sub(r'```.*?```', '', text, flags=re.DOTALL)
+    text = re.sub(r'\{.*?\}', '', text, flags=re.DOTALL)
+    
+    # Clean up any remaining markdown
+    text = text.replace('```', '').replace('`', '')
+    
+    # Format with simple HTML
+    paragraphs = text.split('\n\n')
+    html_content = ""
+    for p in paragraphs:
+        if p.strip():
+            html_content += f"<p>{p.strip()}</p>"
+    
+    return html_content
+
+# Helper function to validate and fix content structure
+def validate_and_fix_content(content, topic):
+    """Ensure all required fields are present and properly formatted"""
+    if not isinstance(content, dict):
+        content = {}
+    
+    # Ensure all required fields exist
+    if "title" not in content or not content["title"]:
+        content["title"] = f"About {topic}"
+    
+    if "introduction" not in content or not content["introduction"]:
+        content["introduction"] = "Here's what you should know about this topic related to food waste reduction."
+    
+    if "content" not in content or not content["content"]:
+        content["content"] = "<p>This topic is important for sustainable food practices. Consider learning more about reducing waste and environmental impact of food consumption.</p>"
+    
+    # Ensure tips is a list
+    if "tips" not in content or not isinstance(content["tips"], list):
+        content["tips"] = ["Be mindful of food waste", "Plan your meals", "Store food properly"]
+    elif len(content["tips"]) == 0:
+        content["tips"] = ["Be mindful of food waste", "Plan your meals", "Store food properly"]
+    
+    # Ensure actionSteps is a list
+    if "actionSteps" not in content or not isinstance(content["actionSteps"], list):
+        content["actionSteps"] = ["Implement one new practice", "Share knowledge with others", "Track your progress"]
+    elif len(content["actionSteps"]) == 0:
+        content["actionSteps"] = ["Implement one new practice", "Share knowledge with others", "Track your progress"]
+    
+    return content
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000) 

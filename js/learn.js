@@ -323,18 +323,40 @@ function displayLearnContent(topic, content) {
     if (content.introduction) {
         const intro = document.createElement('div');
         intro.className = 'content-section';
-        intro.innerHTML = `<p>${content.introduction}</p>`;
+        intro.innerHTML = `<p>${sanitizeHTML(content.introduction)}</p>`;
         contentCard.appendChild(intro);
     }
     
     // Main content
     const mainContent = document.createElement('div');
     mainContent.className = 'content-section';
-    mainContent.innerHTML = content.content || '';
+    
+    // Process and sanitize the main content
+    let processedContent = content.content || '';
+    
+    // If content is still in JSON format or contains markdown code blocks, clean it up
+    if (typeof processedContent === 'string') {
+        // Remove any JSON blocks or markdown formatting
+        processedContent = processedContent
+            .replace(/```json/g, '')
+            .replace(/```/g, '')
+            .replace(/^\s*\{/g, '')
+            .replace(/\}\s*$/g, '');
+            
+        // If content doesn't already have HTML paragraph tags, add them
+        if (!processedContent.includes('<p>')) {
+            processedContent = `<p>${processedContent.split('\n\n').join('</p><p>')}</p>`;
+        }
+    } else {
+        // If content is not a string, convert to string
+        processedContent = String(processedContent);
+    }
+    
+    mainContent.innerHTML = sanitizeHTML(processedContent);
     contentCard.appendChild(mainContent);
     
     // Tips section
-    if (content.tips && content.tips.length > 0) {
+    if (content.tips && Array.isArray(content.tips) && content.tips.length > 0) {
         const tipsSection = document.createElement('div');
         tipsSection.className = 'tips-section';
         
@@ -346,11 +368,14 @@ function displayLearnContent(topic, content) {
         tipsList.className = 'tips-list';
         
         content.tips.forEach(tip => {
+            // Skip empty tips
+            if (!tip) return;
+            
             const tipItem = document.createElement('li');
             tipItem.className = 'tip-item';
             tipItem.innerHTML = `
                 <div class="tip-icon">💡</div>
-                <div class="tip-content">${tip}</div>
+                <div class="tip-content">${sanitizeHTML(String(tip))}</div>
             `;
             tipsList.appendChild(tipItem);
         });
@@ -360,7 +385,7 @@ function displayLearnContent(topic, content) {
     }
     
     // Action steps
-    if (content.actionSteps && content.actionSteps.length > 0) {
+    if (content.actionSteps && Array.isArray(content.actionSteps) && content.actionSteps.length > 0) {
         const actionSection = document.createElement('div');
         actionSection.className = 'action-section';
         
@@ -372,9 +397,12 @@ function displayLearnContent(topic, content) {
         actionList.className = 'action-list';
         
         content.actionSteps.forEach(step => {
+            // Skip empty steps
+            if (!step) return;
+            
             const actionItem = document.createElement('li');
             actionItem.className = 'action-item';
-            actionItem.textContent = step;
+            actionItem.textContent = String(step);
             actionList.appendChild(actionItem);
         });
         
@@ -404,6 +432,30 @@ function displayLearnContent(topic, content) {
     
     // Add the content card to the container
     contentDisplay.appendChild(contentCard);
+}
+
+/**
+ * Sanitize HTML to prevent XSS attacks
+ * @param {string} html - HTML string to sanitize
+ * @returns {string} - Sanitized HTML
+ */
+function sanitizeHTML(html) {
+    if (!html) return '';
+    
+    const temp = document.createElement('div');
+    temp.textContent = html;
+    const sanitized = temp.innerHTML;
+    
+    // Allow specific HTML tags for formatting
+    return sanitized
+        .replace(/&lt;p&gt;/g, '<p>')
+        .replace(/&lt;\/p&gt;/g, '</p>')
+        .replace(/&lt;ul&gt;/g, '<ul>')
+        .replace(/&lt;\/ul&gt;/g, '</ul>')
+        .replace(/&lt;li&gt;/g, '<li>')
+        .replace(/&lt;\/li&gt;/g, '</li>')
+        .replace(/&lt;strong&gt;/g, '<strong>')
+        .replace(/&lt;\/strong&gt;/g, '</strong>');
 }
 
 /**
