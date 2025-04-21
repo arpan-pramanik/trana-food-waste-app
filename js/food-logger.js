@@ -1,5 +1,5 @@
 /**
- * Food Logger Module for Trāṇa
+ * Food Logger Module for Trana
  * Handles food inventory tracking, expiry notifications, and related functionality
  */
 

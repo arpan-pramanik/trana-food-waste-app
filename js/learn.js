@@ -1,5 +1,5 @@
 /**
- * Learn Page Module for Trāṇa
+ * Learn Page Module for Trana
  * Handles interactions with Python backend to get educational content from Gemini AI
  */
 
@@ -419,7 +419,7 @@ function shareContent(topic, content) {
     // For now, simulate copy to clipboard
     
     // Create shareable text
-    const shareText = `${content.title || topic}\n\n${content.introduction || ''}\n\n${content.content || ''}\n\nLearned from Trāṇa - Rescuing Food, Sustaining Life`;
+    const shareText = `${content.title || topic}\n\n${content.introduction || ''}\n\n${content.content || ''}\n\nLearned from Trana - Rescuing Food, Sustaining Life`;
     
     // Copy to clipboard
     navigator.clipboard.writeText(shareText)

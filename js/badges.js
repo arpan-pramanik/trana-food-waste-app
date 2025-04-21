@@ -1,5 +1,5 @@
 /**
- * Badges Module for Trāṇa
+ * Badges Module for Trana
  * Manages the gamification system, badge display, and badge unlock logic
  */
 

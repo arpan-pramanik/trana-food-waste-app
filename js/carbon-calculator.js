@@ -1,5 +1,5 @@
 /**
- * Carbon Calculator Module for Trāṇa
+ * Carbon Calculator Module for Trana
  * Calculates carbon footprint of food waste and tracks savings
  */
 

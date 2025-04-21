@@ -1,5 +1,5 @@
 /**
- * Profile Module for Trāṇa
+ * Profile Module for Trana
  * Manages user profile settings, statistics, and data management
  */
 

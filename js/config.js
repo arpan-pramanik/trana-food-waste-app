@@ -1,5 +1,5 @@
 /**
- * Configuration file for Trāṇa application
+ * Configuration file for Trana application
  * Contains API keys and other configuration settings
  */
 
@@ -17,7 +17,7 @@ const CONFIG = {
     
     // Application settings
     app: {
-        name: "Trāṇa",
+        name: "Trana",
         version: "1.0.0",
         storagePrefix: "trana_",
         expiryWarningDays: 3, // Days before expiry to show warning

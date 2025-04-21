@@ -1,6 +1,6 @@
-# Trāṇa Food Waste App - AI Backend
+# Trana Food Waste App - AI Backend
 
-This document describes the Flask backend for the Trāṇa food waste reduction app, which provides AI-powered suggestions for reusing leftover ingredients using Google's Gemini AI.
+This document describes the Flask backend for the Trana food waste reduction app, which provides AI-powered suggestions for reusing leftover ingredients using Google's Gemini AI.
 
 ## Overview
 

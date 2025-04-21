@@ -1,10 +1,10 @@
-# Trāṇa - Food Waste Reduction App
+# Trana - Food Waste Reduction App
 
 ## Overview
-Trāṇa is a web application designed to help users reduce food waste and promote sustainability. The app provides various features such as food logging, carbon footprint calculation, AI-powered reuse suggestions, and educational resources to encourage sustainable practices.
+Trana is a web application designed to help users reduce food waste and promote sustainability. The app provides various features such as food logging, carbon footprint calculation, AI-powered reuse suggestions, and educational resources to encourage sustainable practices.
 
 ## Features
-- **Homepage**: Introduction to Trāṇa with navigation to other sections.
+- **Homepage**: Introduction to Trana with navigation to other sections.
 - **Food Logger**: Log food items with details and receive alerts for items nearing expiry.
 - **Carbon Footprint Calculator**: Calculate the carbon emissions associated with wasted food.
 - **Gemini AI Suggestions**: Get creative reuse ideas for food items using the Gemini AI API.

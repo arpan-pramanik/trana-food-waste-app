@@ -1,5 +1,5 @@
 /**
- * AI Suggestions Module for Trāṇa
+ * AI Suggestions Module for Trana
  * Handles interactions with Python backend to get food reuse suggestions from Gemini AI
  */
 
