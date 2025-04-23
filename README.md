@@ -14,7 +14,7 @@ Trāṇa is a web application designed to help users reduce food waste and promo
 
 ## AI-Powered Food Reuse Suggestions
 
-The application includes a feature that uses Google's Gemini 1.5 Flash AI model to provide creative suggestions for reusing leftover ingredients. This feature helps users:
+The application includes a feature that uses Google's Gemini AI model to provide creative suggestions for reusing leftover ingredients. This feature helps users:
 
 1. Reduce food waste by finding new ways to use ingredients
 2. Save money by making the most of what's already in the kitchen
