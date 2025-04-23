@@ -41,8 +41,8 @@ The project consists of:
 
 1. Clone the repository:
    ```
-   git clone <repository-url>
-   cd Trāṇa-food-waste-app
+   git clone https://github.com/arpan-pramanik/trana-food-waste-app.git
+   cd trana-food-waste-app
    ```
 
 2. Set up the Python backend for AI features:
@@ -114,7 +114,7 @@ Trāṇa-food-waste-app
 ## Setup Instructions
 1. Clone the repository:
    ```
-   git clone <repository-url>
+   git clone https://github.com/arpan-pramanik/trana-food-waste-app.git
    ```
 2. Open the `index.html` file in your web browser to view the application.
 3. Ensure you have an active internet connection for API calls to the Gemini AI.
