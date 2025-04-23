@@ -27,7 +27,7 @@ The project consists of:
 - Frontend: HTML, CSS, and JavaScript
 - Backend: Python with Flask for the AI suggestions API
 - Database: Local storage for user data
-- AI Integration: Google's Gemini 1.5 Flash model via API
+- AI Integration: Google's Gemini model via API
 
 ## Getting Started
 
