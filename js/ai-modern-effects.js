@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add subtle hover effects to UI elements
   enhanceHoverEffects();
   
-  // Add glowing purple cursor effect
+  // Add glowing green cursor effect
   addGlowingCursor();
 });
 
@@ -195,20 +195,20 @@ function addGlowingCursor() {
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      background: rgba(138, 43, 226, 0.3);
+      background: rgba(46, 204, 113, 0.3);
       pointer-events: none;
       mix-blend-mode: screen;
       z-index: 9999;
       transform: translate(-50%, -50%);
       transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease;
-      box-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
+      box-shadow: 0 0 20px rgba(46, 204, 113, 0.5);
       backdrop-filter: blur(2px);
     }
     
     .glow-cursor.hover {
       width: 40px;
       height: 40px;
-      background: rgba(138, 43, 226, 0.2);
+      background: rgba(46, 204, 113, 0.2);
     }
   `;
   document.head.appendChild(style);

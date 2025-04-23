@@ -7,7 +7,7 @@ This document explains the modern UI design implemented for the "AI Suggestions"
 The UI has been redesigned with a modern, minimal aesthetic featuring:
 
 - **Glassmorphism Effect**: Semi-transparent, blurred containers that create a depth effect
-- **Dark Theme**: A sophisticated black and purple color scheme
+- **Dark Theme**: A sophisticated black and green color scheme
 - **Glowing Elements**: Subtle glow effects on hover and focus states
 - **Rounded Corners**: Generous border-radius for a soft, modern look
 - **Gradient Accents**: Smooth color gradients for visual interest
@@ -17,9 +17,9 @@ The UI has been redesigned with a modern, minimal aesthetic featuring:
 
 The primary color palette includes:
 
-- Deep Purple (`#8A2BE2`) as the primary color
-- Light Purple (`#9D4EDD`) for hover states and highlights
-- Dark Purple (`#6A0DAD`) for gradients and accents 
+- Deep Green (`#2ECC71`) as the primary color
+- Light Green (`#4edd8e`) for hover states and highlights
+- Dark Green (`#27ae60`) for gradients and accents 
 - Dark Black (`#121212`) for the background
 - Light Gray (`#F8F9FA`) for text
 - Muted Gray (`#B0B0B0`) for secondary text

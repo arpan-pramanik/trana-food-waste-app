@@ -1,0 +1,139 @@
+/**
+ * Additional Glow Effects for AI Suggestions Page
+ * These styles enhance the AI page with similar glow effects found in the Learn page
+ */
+
+/* Form input glow effects */
+#ingredients-input {
+    border: 1px solid rgba(46, 204, 113, 0.3);
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.1) inset;
+    transition: all 0.3s ease;
+}
+
+#ingredients-input:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
+    outline: none;
+}
+
+/* Card hover glow effects - without green borders */
+.suggestion-input-card,
+.suggestions-results,
+.suggestion-history,
+.ai-info-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Neutral border color */
+}
+
+.suggestion-input-card:hover,
+.suggestion-history:hover,
+.ai-info-card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 10px var(--green-glow);
+    transform: translateY(-2px);
+}
+
+/* Title glow effects */
+.suggestion-input-card h3,
+.suggestion-history h3,
+.ai-info-card h3 {
+    color: var(--white);
+    text-shadow: 0 0 10px var(--green-glow);
+    margin-bottom: 15px;
+}
+
+/* Enhanced history items */
+.history-item {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: var(--border-radius-sm);
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.history-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-3px);
+    border-color: rgba(46, 204, 113, 0.3);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2), 0 0 8px rgba(46, 204, 113, 0.2);
+}
+
+/* Suggestion card enhanced effects */
+.suggestion-card {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background: rgba(30, 30, 30, 0.6);
+    border: 1px solid rgba(46, 204, 113, 0.2);
+    transition: all 0.3s ease;
+}
+
+.suggestion-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 0 10px var(--green-glow);
+    border-color: var(--green-light);
+}
+
+.suggestion-card h4 {
+    text-shadow: 0 0 5px var(--green-glow);
+}
+
+/* Save button glow */
+.save-suggestion {
+    transition: all 0.3s ease;
+}
+
+.save-suggestion:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
+}
+
+/* Primary button enhanced glow */
+.primary-btn {
+    box-shadow: 0 0 8px var(--green-glow);
+    transition: all 0.3s ease;
+}
+
+.primary-btn:hover {
+    box-shadow: 0 0 15px var(--green-glow);
+}
+
+/* Stats glow effects */
+.ai-stat span {
+    text-shadow: 0 0 10px var(--green-glow);
+}
+
+/* Content backdrop effect */
+.suggestions-content {
+    position: relative;
+}
+
+.suggestions-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.05) 0%, transparent 50%);
+    border-radius: var(--border-radius-md);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Loading spinner enhanced */
+.loading-indicator .spinner {
+    border: 3px solid rgba(46, 204, 113, 0.1);
+    border-top-color: var(--green);
+    box-shadow: 0 0 10px rgba(46, 204, 113, 0.2);
+}
+
+/* Additional hover effects */
+.history-date {
+    color: var(--green);
+    text-shadow: 0 0 10px var(--green-glow);
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+/* Fix for potential conflict */
+.suggestions-content {
+    margin-top: 0;
+} 

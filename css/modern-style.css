@@ -1,6 +1,6 @@
 /**
  * Modern Style for Trāṇa
- * Featuring glassmorphism, glowing effects, and a purple/black color scheme
+ * Featuring glassmorphism, glowing effects, and a green/black color scheme
  */
 
 :root {
@@ -9,9 +9,9 @@
   --deep-black: #121212;
   --dark-gray: #1E1E1E;
   --light-gray: #2A2A2A;
-  --purple: #8A2BE2;
-  --purple-light: #9D4EDD;
-  --purple-glow: rgba(138, 43, 226, 0.4);
+  --green: #2ECC71;
+  --green-light: #4edd8e;
+  --green-glow: rgba(46, 204, 113, 0.4);
   --white: #FFFFFF;
   --off-white: #F0F0F0;
   
@@ -26,7 +26,7 @@
   --glass-border: 1px solid rgba(255, 255, 255, 0.1);
   --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  --purple-shadow: 0 0 15px var(--purple-glow);
+  --green-shadow: 0 0 15px var(--green-glow);
   --transition: all 0.3s ease;
 }
 
@@ -42,8 +42,8 @@ body {
   background-color: var(--black) !important;
   color: var(--white) !important;
   background-image: 
-    radial-gradient(circle at 15% 50%, rgba(138, 43, 226, 0.15) 0%, transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(138, 43, 226, 0.1) 0%, transparent 30%);
+    radial-gradient(circle at 15% 50%, rgba(46, 204, 113, 0.15) 0%, transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(46, 204, 113, 0.1) 0%, transparent 30%);
   background-attachment: fixed;
   min-height: 100vh;
 }
@@ -77,21 +77,21 @@ h1, h2, h3, h4, h5, h6 {
   bottom: -5px;
   height: 3px;
   width: 40px;
-  background: var(--purple);
+  background: var(--green);
   border-radius: 3px;
-  box-shadow: 0 0 8px var(--purple-glow);
+  box-shadow: 0 0 8px var(--green-glow);
 }
 
 /* Links */
 a {
-  color: var(--purple-light);
+  color: var(--green-light);
   text-decoration: none;
   transition: var(--transition);
 }
 
 a:hover {
-  color: var(--purple);
-  text-shadow: 0 0 8px var(--purple-glow);
+  color: var(--green);
+  text-shadow: 0 0 8px var(--green-glow);
 }
 
 /* Container */
@@ -135,13 +135,13 @@ header {
   transition: var(--transition);
   border-radius: 4px;
   padding: 3px 5px;
-  background: linear-gradient(90deg, rgba(138, 43, 226, 0.2), transparent);
+  background: linear-gradient(90deg, rgba(46, 204, 113, 0.2), transparent);
 }
 
 .logo h1 a:hover {
-  color: var(--purple);
-  text-shadow: 0 0 10px var(--purple-glow);
-  background: linear-gradient(90deg, rgba(138, 43, 226, 0.3), transparent);
+  color: var(--green);
+  text-shadow: 0 0 10px var(--green-glow);
+  background: linear-gradient(90deg, rgba(46, 204, 113, 0.3), transparent);
 }
 
 .tagline {
@@ -178,8 +178,8 @@ header {
 
 .nav-menu a.active {
   color: var(--white) !important;
-  background: rgba(138, 43, 226, 0.2) !important;
-  box-shadow: 0 0 10px var(--purple-glow) !important;
+  background: rgba(46, 204, 113, 0.2) !important;
+  box-shadow: 0 0 10px var(--green-glow) !important;
 }
 
 .nav-menu a.active::after {
@@ -206,7 +206,7 @@ header {
 
 /* Page header */
 .page-header {
-  background: linear-gradient(120deg, rgba(138, 43, 226, 0.1), transparent);
+  background: linear-gradient(120deg, rgba(46, 204, 113, 0.1), transparent);
   padding: 40px 0;
   text-align: center;
   margin-bottom: 40px;
@@ -217,7 +217,7 @@ header {
   font-size: 2rem;
   margin-bottom: 10px;
   color: var(--white);
-  text-shadow: 0 0 15px var(--purple-glow);
+  text-shadow: 0 0 15px var(--green-glow);
 }
 
 .page-header p {
@@ -257,7 +257,7 @@ header {
 .feature-card:hover,
 .badge-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--card-shadow), 0 0 15px var(--purple-glow);
+  box-shadow: var(--card-shadow), 0 0 15px var(--green-glow);
 }
 
 /* Form Elements */
@@ -295,8 +295,8 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-  border-color: var(--purple);
-  box-shadow: 0 0 0 2px var(--purple-glow);
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px var(--green-glow);
 }
 
 /* Dropdown Select Styling */
@@ -356,7 +356,7 @@ select option {
 .secondary-btn,
 .danger-btn,
 button[type="submit"] {
-  background: linear-gradient(45deg, var(--purple), var(--purple-light));
+  background: linear-gradient(45deg, var(--green), var(--green-light));
   color: white;
   border: none;
   border-radius: var(--border-radius-sm);
@@ -371,18 +371,18 @@ button[type="submit"] {
 .primary-btn:hover,
 button[type="submit"]:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 15px var(--purple-glow);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 15px var(--green-glow);
 }
 
 .secondary-btn {
   background: transparent;
-  border: 1px solid var(--purple);
-  color: var(--purple);
+  border: 1px solid var(--green);
+  color: var(--green);
 }
 
 .secondary-btn:hover {
-  background: rgba(138, 43, 226, 0.1);
-  box-shadow: 0 0 15px var(--purple-glow);
+  background: rgba(46, 204, 113, 0.1);
+  box-shadow: 0 0 15px var(--green-glow);
 }
 
 .danger-btn {
@@ -421,7 +421,7 @@ footer {
 .footer-links h4 {
   margin-bottom: 8px;
   font-size: 0.9rem;
-  color: var(--purple-light);
+  color: var(--green-light);
 }
 
 .footer-links ul {
@@ -443,7 +443,7 @@ footer {
 }
 
 .footer-links a:hover {
-  color: var(--purple) !important;
+  color: var(--green) !important;
   opacity: 1 !important;
 }
 
@@ -473,8 +473,8 @@ footer {
 .stat-icon {
   font-size: 2rem;
   margin-bottom: 10px;
-  color: var(--purple);
-  text-shadow: 0 0 10px var(--purple-glow);
+  color: var(--green);
+  text-shadow: 0 0 10px var(--green-glow);
 }
 
 /* Badge Styles */
@@ -482,13 +482,13 @@ footer {
   border-radius: var(--border-radius-sm);
   display: inline-flex;
   align-items: center;
-  background: rgba(138, 43, 226, 0.2);
+  background: rgba(46, 204, 113, 0.2);
   padding: 5px 10px;
   font-size: 0.8rem;
   color: var(--white);
   margin-right: 5px;
   margin-bottom: 5px;
-  box-shadow: 0 0 8px var(--purple-glow);
+  box-shadow: 0 0 8px var(--green-glow);
 }
 
 .badge-icon {
@@ -530,11 +530,11 @@ footer {
 
 /* Utility Classes */
 .glow-text {
-  text-shadow: 0 0 8px var(--purple-glow);
+  text-shadow: 0 0 8px var(--green-glow);
 }
 
 .glow-box {
-  box-shadow: 0 0 15px var(--purple-glow);
+  box-shadow: 0 0 15px var(--green-glow);
 }
 
 .glass-effect {
@@ -581,8 +581,8 @@ footer {
 }
 
 .learning-card details[open] summary {
-  background: rgba(138, 43, 226, 0.15);
-  box-shadow: 0 0 10px var(--purple-glow);
+  background: rgba(46, 204, 113, 0.15);
+  box-shadow: 0 0 10px var(--green-glow);
 }
 
 .details-content {
@@ -603,19 +603,19 @@ footer {
 /* AI Suggestions Page Specific Styles */
 .suggestion-input-card h3 {
   color: var(--white);
-  text-shadow: 0 0 10px var(--purple-glow);
+  text-shadow: 0 0 10px var(--green-glow);
   margin-bottom: 15px;
 }
 
 .suggestion-input-card textarea {
-  border: 1px solid rgba(138, 43, 226, 0.3);
-  box-shadow: 0 0 10px rgba(138, 43, 226, 0.1) inset;
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.1) inset;
   background: rgba(30, 30, 30, 0.5);
 }
 
 .suggestion-input-card textarea:focus {
-  border-color: var(--purple);
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+  border-color: var(--green);
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
 }
 
 .suggestions-content {
@@ -629,7 +629,7 @@ footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(138, 43, 226, 0.1) 0%, transparent 50%);
+  background: linear-gradient(135deg, rgba(46, 204, 113, 0.1) 0%, transparent 50%);
   border-radius: var(--border-radius-md);
   pointer-events: none;
 }
@@ -637,8 +637,8 @@ footer {
 .loading-indicator .spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(138, 43, 226, 0.1);
-  border-top-color: var(--purple);
+  border: 3px solid rgba(46, 204, 113, 0.1);
+  border-top-color: var(--green);
   border-radius: 50%;
   margin: 20px auto;
   animation: spin 1s linear infinite;
@@ -649,7 +649,7 @@ footer {
   flex-direction: column;
   align-items: flex-start;
   background: rgba(30, 30, 30, 0.7);
-  border: 1px solid rgba(138, 43, 226, 0.2);
+  border: 1px solid rgba(46, 204, 113, 0.2);
   padding: 20px;
   border-radius: 10px;
   transition: all 0.3s ease;
@@ -657,12 +657,12 @@ footer {
 
 .suggestion-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
-  border-color: var(--purple-light);
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.3);
+  border-color: var(--green-light);
 }
 
 .suggestion-card h4 {
-  color: var(--purple-light);
+  color: var(--green-light);
   margin-bottom: 12px;
   align-self: flex-start;
 }
@@ -677,9 +677,9 @@ footer {
 
 .save-suggestion {
   align-self: flex-end;
-  background-color: rgba(138, 43, 226, 0.15);
-  color: var(--purple-light);
-  border: 1px solid rgba(138, 43, 226, 0.3);
+  background-color: rgba(46, 204, 113, 0.15);
+  color: var(--green-light);
+  border: 1px solid rgba(46, 204, 113, 0.3);
   border-radius: 8px;
   padding: 8px 16px;
   font-family: 'Poppins', sans-serif;
@@ -693,13 +693,13 @@ footer {
 }
 
 .save-suggestion:hover {
-  background-color: rgba(138, 43, 226, 0.25);
-  box-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+  background-color: rgba(46, 204, 113, 0.25);
+  box-shadow: 0 0 10px rgba(46, 204, 113, 0.3);
 }
 
 .ai-info-card {
   background: linear-gradient(135deg, rgba(30, 30, 30, 0.8), rgba(40, 40, 40, 0.6));
-  border: 1px solid rgba(138, 43, 226, 0.2);
+  border: 1px solid rgba(46, 204, 113, 0.2);
 }
 
 .ai-stat {
@@ -709,8 +709,8 @@ footer {
 .ai-stat span {
   font-size: 1.8rem;
   font-weight: 600;
-  color: var(--purple);
-  text-shadow: 0 0 10px var(--purple-glow);
+  color: var(--green);
+  text-shadow: 0 0 10px var(--green-glow);
   display: block;
   margin-bottom: 5px;
 }
@@ -731,7 +731,7 @@ footer {
 }
 
 .history-list::-webkit-scrollbar-thumb {
-  background: rgba(138, 43, 226, 0.5);
+  background: rgba(46, 204, 113, 0.5);
   border-radius: 10px;
 }
 
@@ -748,7 +748,7 @@ footer {
 
 .summary-card {
   background: linear-gradient(135deg, rgba(30, 30, 30, 0.7), rgba(40, 40, 40, 0.5));
-  border: 1px solid rgba(138, 43, 226, 0.2);
+  border: 1px solid rgba(46, 204, 113, 0.2);
   border-radius: var(--border-radius-md);
   padding: 25px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
@@ -767,10 +767,10 @@ footer {
 .badge-stat span:first-child {
   font-size: 2.2rem;
   font-weight: 700;
-  color: var(--purple);
+  color: var(--green);
   display: block;
   margin-bottom: 5px;
-  text-shadow: 0 0 15px var(--purple-glow);
+  text-shadow: 0 0 15px var(--green-glow);
 }
 
 .badge-stat span:last-child {
@@ -793,11 +793,11 @@ footer {
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--purple), var(--purple-light));
+  background: linear-gradient(90deg, var(--green), var(--green-light));
   border-radius: 5px;
   position: relative;
   transition: width 0.6s ease;
-  box-shadow: 0 0 10px var(--purple-glow);
+  box-shadow: 0 0 10px var(--green-glow);
 }
 
 .category-tabs {
@@ -820,14 +820,14 @@ footer {
 }
 
 .tab-btn:hover {
-  background: rgba(138, 43, 226, 0.1);
+  background: rgba(46, 204, 113, 0.1);
 }
 
 .tab-btn.active {
-  background: rgba(138, 43, 226, 0.2);
-  border-color: rgba(138, 43, 226, 0.4);
+  background: rgba(46, 204, 113, 0.2);
+  border-color: rgba(46, 204, 113, 0.4);
   color: var(--white);
-  box-shadow: 0 0 10px var(--purple-glow);
+  box-shadow: 0 0 10px var(--green-glow);
 }
 
 .badge-card {
@@ -852,7 +852,7 @@ footer {
   height: 200%;
   background: radial-gradient(
     circle at center,
-    rgba(138, 43, 226, 0.15),
+    rgba(46, 204, 113, 0.15),
     transparent 70%
   );
   opacity: 0;
@@ -866,8 +866,8 @@ footer {
 .badge-icon-large {
   font-size: 3.5rem;
   margin-bottom: 15px;
-  color: var(--purple);
-  text-shadow: 0 0 15px var(--purple-glow);
+  color: var(--green);
+  text-shadow: 0 0 15px var(--green-glow);
 }
 
 .badge-name {
@@ -911,8 +911,8 @@ footer {
 .benefit-icon {
   font-size: 1.8rem;
   margin-right: 15px;
-  color: var(--purple);
-  text-shadow: 0 0 10px var(--purple-glow);
+  color: var(--green);
+  text-shadow: 0 0 10px var(--green-glow);
 }
 
 /* Carbon Calculator Page Specific Styles */
@@ -925,12 +925,12 @@ footer {
 
 .carbon-calculator-card {
   background: linear-gradient(135deg, rgba(30, 30, 30, 0.8), rgba(40, 40, 40, 0.6));
-  border: 1px solid rgba(138, 43, 226, 0.2);
+  border: 1px solid rgba(46, 204, 113, 0.2);
 }
 
 .carbon-calculator-card h3 {
   color: var(--white);
-  text-shadow: 0 0 10px var(--purple-glow);
+  text-shadow: 0 0 10px var(--green-glow);
   margin-bottom: 20px;
 }
 
@@ -938,7 +938,7 @@ footer {
   text-align: center;
   margin-bottom: 20px;
   color: var(--white);
-  text-shadow: 0 0 10px var(--purple-glow);
+  text-shadow: 0 0 10px var(--green-glow);
 }
 
 .results-summary {
@@ -949,9 +949,9 @@ footer {
 .total-emissions {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--purple);
+  color: var(--green);
   margin-bottom: 10px;
-  text-shadow: 0 0 15px var(--purple-glow);
+  text-shadow: 0 0 15px var(--green-glow);
 }
 
 .emissions-label {
@@ -995,8 +995,8 @@ footer {
 .impact-icon {
   font-size: 2rem;
   margin-bottom: 10px;
-  color: var(--purple);
-  text-shadow: 0 0 10px var(--purple-glow);
+  color: var(--green);
+  text-shadow: 0 0 10px var(--green-glow);
 }
 
 .impact-title {
@@ -1033,6 +1033,6 @@ footer {
 .tip-icon {
   font-size: 1.8rem;
   margin-right: 15px;
-  color: var(--purple);
-  text-shadow: 0 0 10px var(--purple-glow);
+  color: var(--green);
+  text-shadow: 0 0 10px var(--green-glow);
 } 

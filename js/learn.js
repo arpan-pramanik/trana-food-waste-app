@@ -150,22 +150,7 @@ function setupEventListeners() {
         searchHistoryList.addEventListener('click', handleHistoryItemClick);
     }
     
-    // Add retry button in error message
-    if (errorMessage) {
-        const retryButton = document.createElement('button');
-        retryButton.className = 'btn secondary-btn retry-btn';
-        retryButton.textContent = 'Retry Connection';
-        retryButton.addEventListener('click', () => {
-            testApiConnection().then(success => {
-                if (success) {
-                    // If connection is restored, hide error message
-                    showNoContentState();
-                }
-            });
-        });
-        
-        errorMessage.appendChild(retryButton);
-    }
+    // Note: Retry button is now handled in showErrorState() to avoid duplicates
 }
 
 /**
@@ -522,6 +507,23 @@ function showErrorState(customMessage) {
         if (errorParagraph) {
             errorParagraph.textContent = customMessage;
         }
+    }
+    
+    // Make sure we have a retry button (and only one)
+    if (errorMessage && !errorMessage.querySelector('.retry-btn')) {
+        const retryButton = document.createElement('button');
+        retryButton.className = 'btn secondary-btn retry-btn';
+        retryButton.textContent = 'Retry Connection';
+        retryButton.addEventListener('click', () => {
+            testApiConnection().then(success => {
+                if (success) {
+                    // If connection is restored, hide error message
+                    showNoContentState();
+                }
+            });
+        });
+        
+        errorMessage.appendChild(retryButton);
     }
     
     errorMessage.style.display = 'block';

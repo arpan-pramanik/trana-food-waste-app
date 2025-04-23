@@ -1,12 +1,12 @@
 /**
  * Modern CSS styles for the AI Suggestions page
- * Featuring glassmorphism, purple & black color scheme, and glowing effects
+ * Featuring glassmorphism, green & black color scheme, and glowing effects
  */
 
 :root {
-  --primary: #8A2BE2; /* Purple */
-  --primary-light: #9D4EDD;
-  --primary-dark: #6A0DAD;
+  --primary: #2ECC71; /* Green */
+  --primary-light: #4edd8e;
+  --primary-dark: #27ae60;
   --accent: #FF6B6B; /* For contrast */
   --bg-dark: #121212;
   --bg-dark-lighter: #1E1E1E;
@@ -15,7 +15,7 @@
   --text-muted: #B0B0B0;
   --border-radius: 16px;
   --card-radius: 24px;
-  --glow-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+  --glow-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
   --glass-border: 1px solid rgba(255, 255, 255, 0.08);
   --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   --transition: all 0.3s ease;
@@ -61,7 +61,7 @@ header {
 }
 
 .logo h1 a:hover {
-  text-shadow: 0 0 10px rgba(138, 43, 226, 0.4);
+  text-shadow: 0 0 10px rgba(46, 204, 113, 0.4);
 }
 
 .tagline {
@@ -205,7 +205,7 @@ header {
 #ingredients-input:focus {
   border-color: var(--primary);
   outline: none;
-  box-shadow: 0 0 0 2px rgba(138, 43, 226, 0.2);
+  box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
 }
 
 #ingredients-input::placeholder {
@@ -253,7 +253,7 @@ header {
 
 .primary-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
+  box-shadow: 0 0 20px rgba(46, 204, 113, 0.6);
 }
 
 .primary-btn:hover::before {
@@ -280,7 +280,7 @@ header {
 .spinner {
   width: 48px;
   height: 48px;
-  border: 4px solid rgba(138, 43, 226, 0.2);
+  border: 4px solid rgba(46, 204, 113, 0.2);
   border-left-color: var(--primary);
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -339,7 +339,7 @@ header {
 .suggestion-card:hover {
   transform: translateY(-3px);
   box-shadow: var(--glow-shadow);
-  border-color: rgba(138, 43, 226, 0.3);
+  border-color: rgba(46, 204, 113, 0.3);
 }
 
 .suggestion-card h4 {
@@ -356,9 +356,9 @@ header {
 
 .save-suggestion {
   margin-top: 1.25rem;
-  background: rgba(138, 43, 226, 0.15);
+  background: rgba(46, 204, 113, 0.15);
   color: var(--primary-light);
-  border: 1px solid rgba(138, 43, 226, 0.3);
+  border: 1px solid rgba(46, 204, 113, 0.3);
   border-radius: var(--border-radius);
   padding: 0.6rem 1rem;
   font-family: 'Poppins', sans-serif;
@@ -372,8 +372,8 @@ header {
 }
 
 .save-suggestion:hover {
-  background: rgba(138, 43, 226, 0.25);
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+  background: rgba(46, 204, 113, 0.25);
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
 }
 
 .save-suggestion:disabled {
@@ -409,8 +409,8 @@ header {
 }
 
 .retry-btn:hover {
-  background: rgba(138, 43, 226, 0.1);
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+  background: rgba(46, 204, 113, 0.1);
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
 }
 
 /* History List */
@@ -456,9 +456,9 @@ header {
 }
 
 .history-item-view {
-  background: rgba(138, 43, 226, 0.15);
+  background: rgba(46, 204, 113, 0.15);
   color: var(--primary-light);
-  border: 1px solid rgba(138, 43, 226, 0.3);
+  border: 1px solid rgba(46, 204, 113, 0.3);
   padding: 0.5rem 0.75rem;
   border-radius: var(--border-radius);
   cursor: pointer;
@@ -467,8 +467,8 @@ header {
 }
 
 .history-item-view:hover {
-  background: rgba(138, 43, 226, 0.25);
-  box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
+  background: rgba(46, 204, 113, 0.25);
+  box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
 }
 
 /* AI Info Card */
@@ -488,7 +488,7 @@ header {
   background: linear-gradient(135deg, var(--primary), var(--primary-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+  text-shadow: 0 0 15px rgba(46, 204, 113, 0.5);
 }
 
 .ai-stat p {

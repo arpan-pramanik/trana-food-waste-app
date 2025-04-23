@@ -1,6 +1,6 @@
 /**
  * Modern Home Page Styling for Trāṇa
- * Featuring glassmorphism, purple/black color scheme and glow effects
+ * Featuring glassmorphism, green/black color scheme and glow effects
  */
 
 /* Hero Section */
@@ -18,7 +18,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(138, 43, 226, 0.3), rgba(0, 0, 0, 0.7));
+  background: linear-gradient(135deg, rgba(0, 128, 0, 0.3), rgba(0, 0, 0, 0.7));
   z-index: -1;
 }
 
@@ -37,7 +37,7 @@
   font-size: 2.5rem;
   margin-bottom: 15px;
   color: var(--white);
-  text-shadow: 0 0 15px var(--purple-glow);
+  text-shadow: 0 0 15px var(--green-glow);
   animation: pulse 3s infinite alternate;
 }
 
@@ -95,7 +95,7 @@
   text-align: center;
   margin-bottom: 15px;
   color: var(--white);
-  text-shadow: 0 0 10px var(--purple-glow);
+  text-shadow: 0 0 10px var(--green-glow);
 }
 
 .section-text {
@@ -122,8 +122,8 @@
 .feature-icon {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: var(--purple);
-  text-shadow: 0 0 15px var(--purple-glow);
+  color: var(--green);
+  text-shadow: 0 0 15px var(--green-glow);
 }
 
 .feature-card h4 {
@@ -140,7 +140,7 @@
 
 .feature-link {
   display: inline-block;
-  color: var(--purple-light);
+  color: var(--green-light);
   font-weight: 500;
   position: relative;
   transition: var(--transition);
@@ -153,7 +153,7 @@
 }
 
 .feature-link:hover {
-  color: var(--purple);
+  color: var(--green);
 }
 
 .feature-link:hover::after {
@@ -173,7 +173,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to right, rgba(138, 43, 226, 0.05), transparent, rgba(138, 43, 226, 0.05));
+  background: linear-gradient(to right, rgba(0, 128, 0, 0.05), transparent, rgba(0, 128, 0, 0.05));
   z-index: -1;
 }
 
@@ -191,7 +191,7 @@
 
 .impact-list li::before {
   content: "•";
-  color: var(--purple);
+  color: var(--green);
   position: absolute;
   left: -20px;
   top: 0;
@@ -216,10 +216,10 @@
 .stat-number {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--purple);
+  color: var(--green);
   display: block;
   margin-bottom: 10px;
-  text-shadow: 0 0 15px var(--purple-glow);
+  text-shadow: 0 0 15px var(--green-glow);
 }
 
 .stat-text {
@@ -229,7 +229,7 @@
 
 /* CTA Section */
 .cta {
-  background: linear-gradient(135deg, rgba(138, 43, 226, 0.2), rgba(30, 30, 30, 0.9));
+  background: linear-gradient(135deg, rgba(0, 128, 0, 0.2), rgba(30, 30, 30, 0.9));
   padding: 60px 0;
   text-align: center;
   border-radius: var(--border-radius-lg);
@@ -241,7 +241,7 @@
   font-size: 1.8rem;
   margin-bottom: 15px;
   color: var(--white);
-  text-shadow: 0 0 15px var(--purple-glow);
+  text-shadow: 0 0 15px var(--green-glow);
 }
 
 .cta p {
@@ -255,10 +255,10 @@
 /* Animations */
 @keyframes pulse {
   0% {
-    text-shadow: 0 0 5px var(--purple-glow);
+    text-shadow: 0 0 5px var(--green-glow);
   }
   100% {
-    text-shadow: 0 0 20px var(--purple-glow), 0 0 30px var(--purple-glow);
+    text-shadow: 0 0 20px var(--green-glow), 0 0 30px var(--green-glow);
   }
 }
 
