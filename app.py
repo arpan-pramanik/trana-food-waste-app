@@ -13,7 +13,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
 # Configure the Gemini API
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyCm9jQ4YChDxQLXu7onzEbIXSs1i7rQHHw")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 if not GEMINI_API_KEY:
     raise ValueError("GEMINI_API_KEY environment variable not set")
 
